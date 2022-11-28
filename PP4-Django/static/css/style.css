@@ -1,0 +1,36 @@
+body {
+    background-color: black;
+}
+
+
+#logo-title {
+    font-family: 'Lobster';
+    font-size: 2.5rem;
+    padding: .5rem;
+}
+
+#logo {
+    max-width: 10rem;
+}
+
+.navbar {
+    width: 100%;
+    opacity: .8;
+}
+
+.nav-link {
+    color: red;
+    font-size: large;
+}
+
+footer {
+    clear: both;
+    z-index: 1;
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    color: black;
+    padding: 1em;
+    margin-top: 1em;
+    opacity: .8;
+}
