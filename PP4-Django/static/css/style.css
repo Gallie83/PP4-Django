@@ -68,8 +68,15 @@ hr {
     width: 45%;
 }
 
+.home-img-div {
+    overflow: auto;
+    width: 100%;
+}
 
-
+.home-img {
+    width: 33%;
+    display: inline-block;
+}
 
 footer {
     clear: both;
