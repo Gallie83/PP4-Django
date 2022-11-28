@@ -1,0 +1,30 @@
+<!-- Navigation bar -->
+<div class="nav">
+    <nav class="navbar navbar-expand-lg bg-light fixed-top mb-5">
+        <a class="navbar-brand" id="logo-title" href="{% url 'home' %}">
+            Shannon Muay Thai Academy
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <!-- Navigation Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Make a booking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">View bookings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
