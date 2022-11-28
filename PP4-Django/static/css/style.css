@@ -2,7 +2,6 @@ body {
     background-color: black;
 }
 
-
 #logo-title {
     font-family: 'Lobster';
     font-size: 2.5rem;
@@ -37,6 +36,38 @@ body {
     padding-bottom: 3rem;
     font-size: large;
 }
+
+hr {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.about {
+    margin: 2rem;
+    overflow: auto;
+}
+
+.about-div {
+    width: 45%;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.about-img {
+    max-width: 90%;
+}
+
+.about-text {
+    color: white;
+    width: 45%;
+}
+
 
 
 footer {
