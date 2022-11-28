@@ -23,6 +23,22 @@ body {
     font-size: large;
 }
 
+.hero-img {
+    background: url('/static/images/bag.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.times {
+    color: white;
+    padding-left: 60%;
+    margin-top: 8rem;
+    padding-bottom: 3rem;
+    font-size: large;
+}
+
+
 footer {
     clear: both;
     z-index: 1;

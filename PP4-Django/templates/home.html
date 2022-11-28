@@ -1,8 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- Hero Image that sits behind class info and navbar -->
+<div class="hero-img">
+    <!-- Navigation bar -->
+    {% include 'navbar.html' %}
 
-{% include 'navbar.html' %}
+    <!-- Class times information -->
+    <div class="times text-center">
+        <!-- <h2>Class Times:</h2>
+    <br> -->
+        <h2>General Classes</h2>
+        <hr>
+        <p>Tuesday: 19:30</p>
+        <p>Wednesday: 19:30</p>
+        <p>Friday: 19:30</p>
+        <p>Saturday: 12:30</p>
+        <br>
+
+        <h2>Kid's Classes</h2>
+        <hr>
+        <p>Wednesday: 16:45</p>
+        <p>Saturday: 14:30</p>
+    </div>
+</div>
 
 
 {% endblock %}
