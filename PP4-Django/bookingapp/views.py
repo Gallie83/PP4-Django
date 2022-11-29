@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import DateForm, BookingForm
+from django.shortcuts import redirect
 
 
 def home(request):
@@ -8,6 +9,10 @@ def home(request):
 
 def DateView(request):
     form = DateForm(request.POST or None)
+    if form.is_valid():
+        print(form.cleaned_data)
+
+        return redirect('book')
 
     context = {
         'form': form
