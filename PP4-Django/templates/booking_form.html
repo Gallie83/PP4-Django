@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Navigation bar -->
+{% include 'navbar.html' %}
+
+<div class="about mt-5">
+
+    <div class="about-text text-center float-left pt-5 mt-4 border">
+        <h2>Available Times</h2>
+        <hr>
+        <div id="date-picker" class=" mt-5 pt-5 md-form md-outline" inline="true">
+            <form method="POST" class="p-5">
+                {% csrf_token %}
+                <input id="date" type="submit" value="Book Session" />
+            </form>
+        </div>
+    </div>
+
+    <div class="about-div float-right">
+        <img class="about-img rounded" src="/static/images/MT check.jpg" alt="Training session picture">
+    </div>
+    {% endblock %}

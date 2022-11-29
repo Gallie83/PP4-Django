@@ -13,3 +13,13 @@ class DateForm(forms.ModelForm):
             'booking_date',
         ]
         widgets = {'booking_date': DateInput()}
+
+
+class BookingForm(forms.ModelForm):
+    class Meta:
+        model = Booking
+        fields = [
+            'user',
+            'slot',
+            'booking_date',
+        ]

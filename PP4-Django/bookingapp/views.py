@@ -1,6 +1,5 @@
 from django.shortcuts import render
-
-# Create your views here.
+from .forms import DateForm, BookingForm
 
 
 def home(request):
@@ -8,4 +7,18 @@ def home(request):
 
 
 def DateView(request):
-    return render(request, "date_form.html", {})
+    form = DateForm(request.POST or None)
+
+    context = {
+        'form': form
+    }
+    return render(request, "date_form.html", context)
+
+
+def BookingView(request):
+    form = BookingForm(request.POST or None)
+
+    context = {
+        'form': form
+    }
+    return render(request, "booking_form.html", context)
