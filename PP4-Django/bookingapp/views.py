@@ -10,6 +10,8 @@ def home(request):
 def DateView(request):
     form = DateForm(request.POST or None)
     if form.is_valid():
+        request.session["dateSelected"] = str(
+            form.cleaned_data["booking_date"])
         print(form.cleaned_data)
 
         return redirect('book')
