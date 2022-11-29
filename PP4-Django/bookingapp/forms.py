@@ -23,3 +23,5 @@ class BookingForm(forms.ModelForm):
             'slot',
             'booking_date',
         ]
+
+        widgets = {'booking_date': forms.HiddenInput()}

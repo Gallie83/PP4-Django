@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import DateForm, BookingForm
 from django.shortcuts import redirect
+from .models import Booking, Slots
 
 
 def home(request):
@@ -23,7 +24,10 @@ def DateView(request):
 
 
 def BookingView(request):
-    form = BookingForm(request.POST or None)
+    instance = Booking(booking_date=request.session.get(
+        'dateSelected'))
+
+    form = BookingForm(request.POST or None, instance=instance)
 
     context = {
         'form': form
