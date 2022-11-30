@@ -13,11 +13,12 @@
     <div class="about-text text-center float-left pt-5 mt-4 border">
         <h2>Book A Private Training Session</h2>
         <hr>
-        <div id="date-picker" class=" mt-5 pt-5 md-form md-outline" inline="true">
+        <div id="date-picker" class="md-form md-outline" inline="true">
             <form method="POST" class="p-5">
                 {% csrf_token %}
+
                 <input type="date" id="booking_date" name="booking_date">
-                <input id="date" type="submit" value="Check Availablity" />
+                <input id="date" type="submit" value="Check Availability">
             </form>
         </div>
     </div>

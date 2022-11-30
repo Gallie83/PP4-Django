@@ -24,4 +24,7 @@ class BookingForm(forms.ModelForm):
             'booking_date',
         ]
 
-        widgets = {'booking_date': forms.HiddenInput()}
+        widgets = {
+            'booking_date': forms.HiddenInput(),
+            'user': forms.HiddenInput(),
+        }

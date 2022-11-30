@@ -38,7 +38,7 @@ def DateView(request):
 def BookingView(request):
     # Retrieves date used in previous form and sets it to booking_date
     instance = Booking(booking_date=request.session.get(
-        'dateSelected'))
+        'dateSelected'), user=request.user)
 
     form = BookingForm(request.POST or None, instance=instance)
 
