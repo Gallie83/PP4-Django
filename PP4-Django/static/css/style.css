@@ -39,7 +39,7 @@ body {
 }
 
 h2 {
-    padding: 5%;
+    padding: 2rem;
     margin: 0;
 }
 
@@ -83,6 +83,7 @@ hr {
     width: 33%;
     display: inline-block;
 }
+
 
 footer {
     clear: both;

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from .forms import RegisterUserForm
 
 
 # View for user to login
@@ -13,7 +14,7 @@ def login_user(request):
         # If user logs in successfully, redirect them to home page
         if user is not None:
             login(request, user)
-            messages.success(request, ("You have logged in!."))
+            messages.success(request, ("You have logged in!"))
             return redirect('home')
         else:
             # Return an 'invalid login' error message.
@@ -35,7 +36,7 @@ def logout_user(request):
 # View for new users to register
 def register_user(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = RegisterUserForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data['username']
@@ -45,6 +46,6 @@ def register_user(request):
             messages.success(request, "Registration Successful!")
             return redirect('home')
     else:
-        form = UserCreationForm()
+        form = RegisterUserForm()
 
     return render(request, 'authenticate/register_user.html', {'form': form, })
