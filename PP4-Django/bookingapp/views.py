@@ -15,11 +15,17 @@ def confirmed(request):
 
 
 def view_bookings(request):
-    booking_list = Booking.objects.filter(user=request.user)
+    # Prevents user from accessing page if not logged in
+    if request.user.is_authenticated:
+        # Only returns bookings made by user
+        booking_list = Booking.objects.filter(user=request.user)
 
-    return render(request, 'view_bookings.html',
-                  {'booking_list': booking_list}
-                  )
+        return render(request, 'view_bookings.html',
+                      {'booking_list': booking_list})
+
+    # Brings user to log in page
+    else:
+        return redirect('login')
 
 
 # Form that user chooses date for booking
