@@ -13,9 +13,15 @@ def home(request):
 def confirmed(request):
     return render(request, 'confirmed.html', {})
 
+
+def view_bookings(request):
+    booking_list = Booking.objects.all()
+    return render(request, 'view_bookings.html',
+                  {'booking_list': booking_list}
+                  )
+
+
 # Form that user chooses date for booking
-
-
 def DateView(request):
     form = DateForm(request.POST or None)
     if form.is_valid():
