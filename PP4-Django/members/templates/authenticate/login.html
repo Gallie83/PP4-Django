@@ -5,27 +5,35 @@
     <!-- Navigation bar -->
     {% include 'navbar.html' %}
 </div>
-<div class="about mt-5">
+<div class="about my-5">
 
-    <div class="about-text text-center float-left pt-5 mt-4 border">
+    <div class="about-text text-center float-left py-4 mt-4 border">
         <h2>Login</h2>
         <hr>
         <div class="md-form md-outline" inline="true">
-            <form method="POST" class="px-5">
+            <form method="POST" class="px-5 py-2">
                 {% csrf_token %}
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label for="exampleInputEmail1">Email:</label>
                     <input type="text" class="form-control" name="email" placeholder="Enter email">
                 </div>
-                <div class="form-group">
+                <div class="form-group my-2">
                     <label for="exampleInputPassword1">Password:</label>
                     <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary my-3">Login</button>
             </form>
 
-            </form>
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show m-3" role="alert">
+                <strong>{{ message }}</strong>
+            </div>
+            {% endfor %}
+            {% endif %}
+
         </div>
     </div>
 
-    {% endblock %}
+</div>
+{% endblock %}
