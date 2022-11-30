@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mb-5 pb-5">
+    <!-- Navigation bar -->
+    {% include 'navbar.html' %}
+</div>
+<div class="about my-5">
+
+    <div class="about-text text-center float-left py-4 mt-4 border">
+        <h2>Register</h2>
+        <hr>
+        <div class="md-form md-outline" inline="true">
+            <form method="POST" class="px-5 py-2">
+                {% csrf_token %}
+
+
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-danger alert-dismissible fade show m-3" role="alert">
+                    <strong>{{ message }}</strong>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
