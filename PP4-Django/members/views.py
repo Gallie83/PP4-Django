@@ -5,9 +5,9 @@ from django.contrib import messages
 
 def login_user(request):
     if request.method == "POST":
-        email = request.POST['email']
+        username = request.POST['username']
         password = request.POST['password']
-        user = authenticate(request, email=email, password=password)
+        user = authenticate(request, username=username, password=password)
         # If user logs in successfully, redirect them to home page
         if user is not None:
             login(request, user)
@@ -19,3 +19,9 @@ def login_user(request):
 
     else:
         return render(request, 'authenticate/login.html', {})
+
+
+def logout_user(request):
+    logout(request)
+    messages.success(request, ("You have logged out."))
+    return redirect('login')
