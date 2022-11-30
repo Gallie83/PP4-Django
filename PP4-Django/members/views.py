@@ -11,6 +11,7 @@ def login_user(request):
         # If user logs in successfully, redirect them to home page
         if user is not None:
             login(request, user)
+            messages.success(request, ("You have logged in!."))
             return redirect('home')
         else:
             # Return an 'invalid login' error message.
