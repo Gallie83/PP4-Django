@@ -15,7 +15,8 @@ def confirmed(request):
 
 
 def view_bookings(request):
-    booking_list = Booking.objects.all()
+    booking_list = Booking.objects.filter(user=request.user)
+
     return render(request, 'view_bookings.html',
                   {'booking_list': booking_list}
                   )
