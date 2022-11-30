@@ -7,8 +7,16 @@
 </div>
 <div class="about my-5">
 
-    <div class="forms text-white text-center py-4 mt-4 border">
-        <h2>Register</h2>
+    <div class="forms text-white py-4 mt-4 border shadow">
+
+        <h2 class="text-center">Register</h2>
+
+        {% if form.errors %}
+        <div class="alert alert-danger m-3 w-50 mx-auto" role="alert">
+            <strong>There was an error with your registration, please try again</strong>
+        </div>
+        {% endif %}
+
         <hr>
         <div class="md-form md-outline w-50 mx-auto" inline="true">
             <form method="POST" class="px-5 py-2">
@@ -18,11 +26,6 @@
 
                 <button type="submit" class="btn btn-primary my-3">Register</button>
             </form>
-            {% if form.errors %}
-            <div class="alert alert-danger alert-dismissible fade show m-3" role="alert">
-                <strong>There was an error with your registration, please try again</strong>
-            </div>
-            {% endif %}
 
         </div>
     </div>

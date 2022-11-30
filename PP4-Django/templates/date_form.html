@@ -5,7 +5,10 @@
     <!-- Navigation bar -->
     {% include 'navbar.html' %}
 </div>
+
 <div class="about mt-5">
+
+    {% if user.is_authenticated %}
 
     <div class="about-text text-center float-left pt-5 mt-4 border">
         <h2>Book A Private Training Session</h2>
@@ -22,5 +25,20 @@
     <div class="about-div float-right">
         <img class="about-img rounded" src="/static/images/MT check.jpg" alt="Training session picture">
     </div>
+
+    {% else %}
+    <div class="w-50 mx-auto text-center pt-5 mt-4 border">
+        <div class="w-50 mx-auto mb-5 text-white ">
+            <h2>Sorry!</h2>
+            <hr>
+            <p class="p-3">You must be logged in to book a private training session.</p>
+
+            <a href="{% url 'login'%}">Login here!</a>
+        </div>
+    </div>
+
+    {% endif %}
 </div>
+
+
 {% endblock %}

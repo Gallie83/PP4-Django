@@ -1,5 +1,9 @@
 body {
     background-color: black;
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 #logo-title {
@@ -95,5 +99,7 @@ footer {
     padding: 1em;
     margin-top: 1em;
     opacity: .8;
+    bottom: 0;
+    position: relative;
 
 }

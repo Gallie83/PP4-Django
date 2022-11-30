@@ -9,6 +9,15 @@
 
     <div class="forms text-white text-center py-4 mt-4 border w-50 mx-auto">
         <h2>Login</h2>
+
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger m-3 w-75 mx-auto" role="alert">
+            <strong>{{ message }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+
         <hr>
         <div class="md-form md-outline w-50 mx-auto" inline="true">
             <form method="POST" class="px-5 py-2">
@@ -23,14 +32,6 @@
                 </div>
                 <button type="submit" class="btn btn-primary my-3">Login</button>
             </form>
-
-            {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-danger alert-dismissible fade show m-3" role="alert">
-                <strong>{{ message }}</strong>
-            </div>
-            {% endfor %}
-            {% endif %}
 
         </div>
     </div>
