@@ -7,6 +7,7 @@
     {% include 'navbar.html' %}
     <!-- Class times information -->
     <div class="times text-center">
+        <!-- If user logs in, shows success message -->
         {% if messages %}
         {% for message in messages %}
         <div class="alert alert-success alert-dismissible fade show m-3" role="alert">
@@ -16,6 +17,7 @@
         {% endif %}
         <img class="rounded" id="logo" src="/static/images/logo.jpg" alt="Muay Thai logo">
         <br>
+        <!-- Information about class times -->
         <h2>General Classes</h2>
         <hr>
         <p>Tuesday: 19:30</p>

@@ -14,23 +14,32 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only"></span></a>
                 </li>
+                <!-- Link to the Booking Page -->
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'date' %}">Make a booking</a>
                 </li>
+                <!-- User can check existing bookings -->
                 <li class="nav-item">
                     <a class="nav-link" href="#">View bookings</a>
                 </li>
 
                 {% if user.is_authenticated %}
 
+                <!-- If logged in, user can logout -->
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout'%}">Logout</a>
                 </li>
 
                 {% else %}
+                <!-- Link to Login page -->
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'login'%}">Login</a>
                 </li>
+                <!-- Link to registration page -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register_user'%}">Make an account</a>
+                </li>
+
                 {% endif %}
             </ul>
         </div>
