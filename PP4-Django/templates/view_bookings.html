@@ -7,32 +7,22 @@
 </div>
 <div class="about mt-5">
 
-    {% if user.is_authenticated %}
-
-    <div class="about-text text-center float-left pt-5 mt-4 border">
+    <div class="text-center text-white pt-5 mt-4 border w-50 mx-auto">
         <h2>Your booked sessions</h2>
         <hr>
         <div class="md-form md-outline" inline="true">
 
+            {% if booking_list > 0 %}
             {% for booking in booking_list %}
             <p class="bg-danger rounded py-4 my-3 w-75 mx-auto">You have a session booked at {{ booking.slot }} on
                 {{ booking.booking_date }}
             </p>
             {% endfor %}
+            {% else %}
+            <p class="py-5"> You have no sessions booked! </p>
+            {% endif %}
         </div>
     </div>
 
-    {% else %}
-    <div class="w-50 mx-auto text-center pt-5 mt-4 border">
-        <div class="w-50 mx-auto mb-5 text-white ">
-            <h2>Sorry!</h2>
-            <hr>
-            <p class="p-3">You must be logged in to book a private training session.</p>
-
-            <a class="bg-light p-2" href="{% url 'login'%}">Login here!</a>
-        </div>
-    </div>
-
-    {% endif %}
 </div>
 {% endblock %}

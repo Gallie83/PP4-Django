@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .forms import DateForm, BookingForm
 from django.shortcuts import redirect
 from .models import Booking, Slots
+from django.contrib import messages
+from datetime import date
+import datetime
 
 
 # Renders home page
@@ -32,22 +35,29 @@ def view_bookings(request):
 def DateView(request):
     form = DateForm(request.POST or None)
     if form.is_valid():
-        # Stores inputted date as string to be used in booking form
-        request.session["dateSelected"] = str(
-            form.cleaned_data["booking_date"])
-        print(form.cleaned_data)
+        # Takes input and converts from str to date
+        formDate = form.cleaned_data.get('booking_date')
+        newDate = datetime.datetime.strptime(formDate, '%Y-%m-%d').date()
+        # Checks if date is before current date and throws error message
+        if newDate < date.today():
+            messages.success(request, ("Invalid date selected!"))
+            return redirect('date')
+        else:
+            # Stores inputted date as string to be used in booking form
+            request.session["dateSelected"] = str(
+                form.cleaned_data["booking_date"])
+            print(form.cleaned_data)
 
-        # Redirects user to booking form page
-        return redirect('book')
+            # Redirects user to booking form page
+            return redirect('book')
 
     context = {
         'form': form
     }
     return render(request, "date_form.html", context)
 
+
 # Form user submits to reserve booking
-
-
 def BookingView(request):
     # Retrieves date used in previous form and sets it to booking_date
     instance = Booking(booking_date=request.session.get(

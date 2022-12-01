@@ -20,6 +20,15 @@
                 <input type="date" id="booking_date" name="booking_date">
                 <input id="date" type="submit" value="Check Availability">
             </form>
+
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-danger m-3 w-75 mx-auto" role="alert">
+                <strong>{{ message }}</strong>
+            </div>
+            {% endfor %}
+            {% endif %}
+
         </div>
     </div>
 
