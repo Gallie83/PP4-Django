@@ -34,6 +34,7 @@ def view_bookings(request):
 def delete_bookings(request, booking_id):
     booking = Booking.objects.get(pk=booking_id)
     booking.delete()
+    messages.success(request, ("Booking has been deleted!"))
 
     return redirect('view_bookings')
 

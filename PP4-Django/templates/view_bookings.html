@@ -11,6 +11,13 @@
         <h2>Your booked sessions</h2>
         <hr>
         <div class="md-form md-outline" inline="true">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-danger m-3 w-50 mx-auto" role="alert">
+                <strong>{{ message }}</strong>
+            </div>
+            {% endfor %}
+            {% endif %}
 
             {% if booking_list %}
             {% for booking in booking_list %}

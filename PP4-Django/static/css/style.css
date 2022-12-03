@@ -14,7 +14,6 @@ body {
 
 #logo {
     max-width: 7rem;
-
 }
 
 .navbar {
@@ -25,11 +24,11 @@ body {
 
 .opacity {
     opacity: .8;
-    transition: opacity 2s;
+    transition: 2s;
 }
 
 .opacity-filled {
-    transition: opacity 2s;
+    transition: 2s;
     opacity: 1;
 }
 
