@@ -17,6 +17,7 @@ def confirmed(request):
     return render(request, 'confirmed.html', {})
 
 
+# Page where user can see their bookings
 def view_bookings(request):
     # Prevents user from accessing page if not logged in
     if request.user.is_authenticated:
@@ -31,6 +32,7 @@ def view_bookings(request):
         return redirect('login')
 
 
+# Allows user to delete selected booking
 def delete_bookings(request, booking_id):
     booking = Booking.objects.get(pk=booking_id)
     booking.delete()
@@ -74,9 +76,7 @@ def BookingView(request):
     form = BookingForm(request.POST or None, instance=instance)
 
     if form.is_valid():
-
         print(form.cleaned_data)
-
         form.save()
 
         # Redirects user to booking form page
