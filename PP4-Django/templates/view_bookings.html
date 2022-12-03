@@ -12,10 +12,11 @@
         <hr>
         <div class="md-form md-outline" inline="true">
 
-            {% if booking_list > 0 %}
+            {% if booking_list %}
             {% for booking in booking_list %}
-            <p class="bg-danger rounded py-4 my-3 w-75 mx-auto">You have a session booked at {{ booking.slot }} on
+            <p class="bg-danger rounded py-3 my-2 w-75 mx-auto">You have a session booked at {{ booking.slot }} on
                 {{ booking.booking_date }}
+                <a href="{% url 'delete_bookings' booking.id %}" class="btn btn-outline-light btn-sm m-2">Delete!</a>
             </p>
             {% endfor %}
             {% else %}

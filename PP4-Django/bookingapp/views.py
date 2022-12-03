@@ -31,6 +31,13 @@ def view_bookings(request):
         return redirect('login')
 
 
+def delete_bookings(request, booking_id):
+    booking = Booking.objects.get(pk=booking_id)
+    booking.delete()
+
+    return redirect('view_bookings')
+
+
 # Form that user chooses date for booking
 def DateView(request):
     form = DateForm(request.POST or None)
