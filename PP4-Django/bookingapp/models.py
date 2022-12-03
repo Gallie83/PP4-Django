@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from datetime import date
 
+# All available times that a Booking can take place
 Slots = (
         ('9.00 - 10.00', '9.00 - 10.00'),
         ('10.00 - 11.00', '10.00 - 11.00'),
@@ -15,6 +16,7 @@ Slots = (
 )
 
 
+# Model for booking private training sessions
 class Booking(models.Model):
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL,

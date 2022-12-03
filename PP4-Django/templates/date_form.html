@@ -8,6 +8,7 @@
 
 <div class="about mt-5">
 
+    <!-- Ensures user is logged in to see page -->
     {% if user.is_authenticated %}
 
     <div class="about-text text-center float-left pt-5 mt-4 border">
@@ -17,10 +18,12 @@
             <form method="POST" class="p-5">
                 {% csrf_token %}
 
+                <!-- Date picker -->
                 <input type="date" id="booking_date" name="booking_date">
                 <input id="date" type="submit" value="Check Availability">
             </form>
 
+            <!-- If user selects an invalid date, a message appears -->
             {% if messages %}
             {% for message in messages %}
             <div class="alert alert-danger m-3 w-75 mx-auto" role="alert">
@@ -32,17 +35,20 @@
         </div>
     </div>
 
+    <!-- Training session picture -->
     <div class="about-div float-right">
         <img class="about-img rounded" src="/static/images/MT check.jpg" alt="Training session picture">
     </div>
 
     {% else %}
+    <!-- If user not logged in -->
     <div class="w-50 mx-auto text-center pt-5 mt-4 border">
         <div class="w-50 mx-auto mb-5 text-white ">
             <h2>Sorry!</h2>
             <hr>
             <p class="p-3">You must be logged in to book a private training session.</p>
 
+            <!-- Link to Login page -->
             <a class="btn btn-light btn-sm m-2" href="{% url 'login'%}">Login here!</a>
         </div>
     </div>

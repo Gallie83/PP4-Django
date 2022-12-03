@@ -6,6 +6,7 @@ body {
     flex-direction: column;
 }
 
+/* Title styling */
 #logo-title {
     font-family: 'Lobster';
     font-size: 2.5rem;
@@ -16,12 +17,13 @@ body {
     max-width: 7rem;
 }
 
+/* Navbar styles */
 .navbar {
     width: 100%;
     background-color: rgb(219, 222, 225);
 }
 
-
+/* Controls opacity of navbar as user scrolls */
 .opacity {
     opacity: .8;
     transition: 2s;
@@ -37,6 +39,7 @@ body {
     font-size: large;
 }
 
+/* Hero Image on the home page */
 .hero-img {
     background: url('/static/images/bag.jpg');
     background-position: center;
@@ -44,6 +47,7 @@ body {
     background-size: cover;
 }
 
+/* Class times on hero image */
 .times {
     color: white;
     padding-left: 60%;
@@ -62,15 +66,18 @@ hr {
     margin-left: 20%;
 }
 
+/* Div that wraps around text and image on homepage */
 .about {
     margin: 2rem;
     overflow: auto;
 }
 
-.about-div {
+/* Div that wraps around image on homepage */
+.img-div {
     width: 45%;
 }
 
+/* Keeps images and text to left and right sides */
 .float-right {
     float: right;
 }
@@ -79,25 +86,28 @@ hr {
     float: left;
 }
 
+/* Home page images */
 .about-img {
     max-width: 90%;
 }
 
+/* Home page text */
 .about-text {
     color: white;
     width: 45%;
 }
 
+/* Wraps around images at bottom of home page */
 .home-img-div {
     overflow: auto;
     width: 100%;
 }
 
+/* Images at bottom of home screen */
 .home-img {
     width: 33%;
     display: inline-block;
 }
-
 
 footer {
     clear: both;

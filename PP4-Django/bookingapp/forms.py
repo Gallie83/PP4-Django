@@ -3,10 +3,12 @@ from .models import Booking
 from datetime import date
 
 
+# Nicer style for Date Picker
 class DateInput(forms.DateInput):
     input_type = 'date'
 
 
+# Form for user to choose date of session
 class DateForm(forms.ModelForm):
     class Meta:
         model = Booking
@@ -16,6 +18,7 @@ class DateForm(forms.ModelForm):
         widgets = {'booking_date': DateInput()}
 
 
+# Form for user to choose time of session
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
@@ -25,6 +28,7 @@ class BookingForm(forms.ModelForm):
             'booking_date',
         ]
 
+    # Hides user and booking_date fields for a cleaner look
         widgets = {
             'booking_date': forms.HiddenInput(),
             'user': forms.HiddenInput(),

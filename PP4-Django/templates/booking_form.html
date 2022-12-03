@@ -7,6 +7,7 @@
 </div>
 <div class="about mt-5">
 
+    <!-- Ensures user is logged in to access page -->
     {% if user.is_authenticated %}
 
     <div class="about-text text-center float-left pt-5 mt-4 border">
@@ -15,8 +16,18 @@
         <div class="md-form md-outline" inline="true">
             <form method="POST" class="p-5">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <input id="book" type="submit" value="Book Session" />
+                <!-- {{ form.as_p }} -->
+                <div class="form-group">
+                    <label for="slot">Pick a time:</label>
+                    <select class="form-control" id="slot" name="slot">
+                        {% for time in available_slots %}
+                        <option>
+                            {{ time }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <input id="slot" type="submit" value="Book Session" />
             </form>
         </div>
     </div>
@@ -26,13 +37,15 @@
     </div>
 
     {% else %}
+    <!-- If user not logged in, a link to login page -->
     <div class="w-50 mx-auto text-center pt-5 mt-4 border">
         <div class="w-50 mx-auto mb-5 text-white ">
             <h2>Sorry!</h2>
             <hr>
             <p class="p-3">You must be logged in to book a private training session.</p>
 
-            <a class="bg-light p-2" href="{% url 'login'%}">Login here!</a>
+            <!-- Login page link -->
+            <a class="btn btn-light btn-sm m-2" href="{% url 'login'%}">Login here!</a>
         </div>
     </div>
 

@@ -14,6 +14,7 @@ def login_user(request):
         # If user logs in successfully, redirect them to home page
         if user is not None:
             login(request, user)
+            # Login success message
             messages.success(request, ("You have logged in!"))
             return redirect('home')
         else:
@@ -43,6 +44,7 @@ def register_user(request):
             password = form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
             login(request, user)
+            # Successful registration message
             messages.success(request, "Registration Successful!")
             return redirect('home')
     else:
