@@ -11,7 +11,7 @@
         <h2>Your booked sessions</h2>
         <hr>
 
-        <div class="md-form md-outline" inline="true">
+        <div class="md-outline" inline="true">
             <!-- If user deletes session, message appears -->
             {% if messages %}
             {% for message in messages %}
@@ -24,7 +24,8 @@
             <!-- Displays users booked sessions from database -->
             {% if booking_list %}
             {% for booking in booking_list %}
-            <p class="bg-danger rounded py-3 my-2 w-75 mx-auto">You have a session booked at {{ booking.slot }} on
+            <p class="booked bg-danger rounded py-3 my-2 w-75 mx-auto">You have a session booked at {{ booking.slot }}
+                on
                 {{ booking.booking_date }}
                 <!-- Button for deleting session -->
                 <a href="{% url 'delete_bookings' booking.id %}" class="btn btn-outline-light btn-sm m-2">Delete</a>

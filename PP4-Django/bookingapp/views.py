@@ -94,11 +94,12 @@ def BookingView(request):
         print(form.cleaned_data)
         form.save()
 
-        # Redirects user to booking form page
+        # Redirects user to confirmed booking page
         return redirect('confirmed')
 
     else:
         print("Invalid")
+        print(form)
 
     context = {
         'form': form,

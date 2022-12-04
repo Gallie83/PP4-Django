@@ -57,7 +57,7 @@ body {
 }
 
 h2 {
-    padding: 2rem;
+    padding: 1rem;
     margin: 0;
 }
 
@@ -70,31 +70,30 @@ hr {
 .about {
     margin: 2rem;
     overflow: auto;
+    display: flex;
+    align-items: center;
 }
 
 /* Div that wraps around image on homepage */
 .img-div {
     width: 45%;
-}
-
-/* Keeps images and text to left and right sides */
-.float-right {
-    float: right;
-}
-
-.float-left {
-    float: left;
+    margin: auto;
 }
 
 /* Home page images */
 .about-img {
-    max-width: 90%;
+    max-width: 100%;
+    vertical-align: middle;
 }
 
 /* Home page text */
 .about-text {
     color: white;
     width: 45%;
+    height: 100%;
+    margin: auto;
+    /* display: table-cell; */
+    vertical-align: middle;
 }
 
 /* Wraps around images at bottom of home page */
@@ -107,6 +106,15 @@ hr {
 .home-img {
     width: 33%;
     display: inline-block;
+}
+
+/* Keeps images and text to left and right sides */
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
 }
 
 footer {
