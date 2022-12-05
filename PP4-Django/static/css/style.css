@@ -215,6 +215,11 @@ footer {
         width: 100%;
     }
 
+    /* Delete booking button */
+    .delete-booking {
+        display: block;
+    }
+
     .img-div {
         width: 100%;
     }

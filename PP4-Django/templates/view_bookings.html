@@ -7,7 +7,7 @@
 </div>
 <div class="about mt-5">
 
-    <div class="about-text text-center text-white pt-5 mt-4 border mx-auto">
+    <div class="register text-center text-white pt-5 mt-4 border mx-auto">
         <h2>Your booked sessions</h2>
         <hr>
 
@@ -28,7 +28,8 @@
                 on
                 {{ booking.booking_date }}
                 <!-- Button for deleting session -->
-                <a href="{% url 'delete_bookings' booking.id %}" class="btn btn-outline-light btn-sm m-2">Delete</a>
+                <a href="{% url 'delete_bookings' booking.id %}"
+                    class="delete-booking btn btn-outline-light btn-sm m-2">Delete</a>
             </p>
             {% endfor %}
             {% else %}
