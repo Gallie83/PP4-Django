@@ -47,6 +47,7 @@ body {
     background-size: cover;
 }
 
+
 /* Class times on hero image */
 .times {
     color: white;
@@ -108,13 +109,9 @@ hr {
     display: inline-block;
 }
 
-/* Keeps images and text to left and right sides */
-.float-right {
-    float: right;
-}
-
-.float-left {
-    float: left;
+/* Login and register div styling */
+.register {
+    width: 50%;
 }
 
 footer {
@@ -128,4 +125,98 @@ footer {
     margin-top: 1em;
     bottom: 0;
     position: relative;
+}
+
+/* Media queries */
+@media screen and (max-width: 1000px) {
+
+    /* Home screen styling */
+    .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .about {
+        display: block;
+        max-width: 100%;
+    }
+
+    .about-text,
+    .register {
+        width: 80%;
+        margin: auto;
+    }
+
+    .img-div {
+        width: 55%;
+        margin: 1rem auto;
+    }
+
+    /* Aligns links in navbar dropdown to center */
+    .nav-link {
+        text-align: center;
+    }
+
+}
+
+/* Condenses 3 images at home screen bottom to one */
+@media screen and (max-width:880px) {
+    .home-img {
+        width: 100%;
+    }
+
+    .disappear {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:800px) {
+    .about-text {
+        width: 90%;
+    }
+
+    .img-div {
+        width: 75%;
+    }
+
+}
+
+@media screen and (min-width:650px) {
+    .small-logo {
+        display: none;
+    }
+}
+
+/* Media Queries for small screens */
+@media screen and (max-width:650px) {
+    .hero-img {
+        background: black;
+        /* Adds white line below class times */
+        border-bottom: 1px solid white;
+    }
+
+    .times {
+        padding: 0;
+    }
+
+    #logo-title {
+        display: none;
+    }
+
+    .small-logo {
+        max-width: 5rem;
+        margin-left: 1rem;
+    }
+
+    .about-text,
+    .register {
+        width: 100%;
+    }
+
+    .img-div {
+        width: 100%;
+    }
+
 }

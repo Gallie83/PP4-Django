@@ -17,7 +17,6 @@
         <div id="date-picker" class="md-form md-outline" inline="true">
             <form method="POST" class="p-5">
                 {% csrf_token %}
-
                 <!-- Date picker -->
                 <input type="date" id="booking_date" name="booking_date">
                 <input id="date" type="submit" value="Check Availability">
@@ -42,11 +41,11 @@
 
     {% else %}
     <!-- If user not logged in -->
-    <div class="w-50 mx-auto text-center pt-5 mt-4 border">
+    <div class="register mx-auto text-center pt-5 mt-4 border">
         <div class="w-50 mx-auto mb-5 text-white ">
             <h2>Sorry!</h2>
             <hr>
-            <p class="p-3">You must be logged in to book a private training session.</p>
+            <p class="p-1">You must be logged in to book a private training session.</p>
 
             <!-- Link to Login page -->
             <a class="btn btn-light btn-sm m-2" href="{% url 'login'%}">Login here!</a>

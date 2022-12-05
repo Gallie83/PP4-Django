@@ -7,19 +7,19 @@
 </div>
 <div class="about my-5">
 
-    <div class="text-white py-4 mt-4 border shadow">
+    <div class="register text-white text-center py-4 mt-4 border mx-auto">
 
         <h2 class="text-center">Register</h2>
 
         {% if form.errors %}
-        <div class="alert alert-danger m-3 w-50 mx-auto" role="alert">
+        <div class="alert alert-danger m-3 w-50" role="alert">
             <strong>There was an error with your registration, please try again</strong>
         </div>
         {% endif %}
 
         <hr>
         <div class="md-form md-outline w-50 mx-auto" inline="true">
-            <form method="POST" class="px-5 py-2">
+            <form method="POST">
                 {% csrf_token %}
 
                 {{ form.as_p }}

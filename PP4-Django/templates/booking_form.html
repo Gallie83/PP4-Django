@@ -16,8 +16,8 @@
         <div class="md-form md-outline" inline="true">
             <form method="POST" class="p-5">
                 {% csrf_token %}
-                <!-- {{ form.as_p }} -->
-                <div class="form-group">
+                {{ form.as_p }}
+                <!-- <div>
                     <label for="slot">Pick a time:</label>
                     <select class="form-control" id="slot" name="slot">
                         {% for time in available_slots %}
@@ -26,7 +26,7 @@
                         </option>
                         {% endfor %}
                     </select>
-                </div>
+                </div> -->
                 <input id="slot" type="submit" value="Book Session" />
             </form>
         </div>

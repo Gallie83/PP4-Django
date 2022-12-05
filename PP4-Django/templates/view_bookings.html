@@ -7,7 +7,7 @@
 </div>
 <div class="about mt-5">
 
-    <div class="text-center text-white pt-5 mt-4 border w-50 mx-auto">
+    <div class="about-text text-center text-white pt-5 mt-4 border mx-auto">
         <h2>Your booked sessions</h2>
         <hr>
 
@@ -24,7 +24,7 @@
             <!-- Displays users booked sessions from database -->
             {% if booking_list %}
             {% for booking in booking_list %}
-            <p class="booked bg-danger rounded py-3 my-2 w-75 mx-auto">You have a session booked at {{ booking.slot }}
+            <p class="booked bg-danger rounded py-2 my-2 w-75 mx-auto">You have a session booked at {{ booking.slot }}
                 on
                 {{ booking.booking_date }}
                 <!-- Button for deleting session -->

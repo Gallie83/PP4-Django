@@ -7,7 +7,7 @@
 </div>
 <div class="about my-5">
 
-    <div class="text-white text-center py-4 mt-4 border w-50 mx-auto">
+    <div class="register text-white text-center py-4 mt-4 border mx-auto">
         <h2>Login</h2>
 
         {% if messages %}
@@ -19,7 +19,7 @@
         {% endif %}
 
         <hr>
-        <div class="md-form md-outline w-50 mx-auto" inline="true">
+        <div class="md-form md-outline mx-auto" inline="true">
             <form method="POST" class="px-5 py-2">
                 {% csrf_token %}
                 <div class="form-group my-2">

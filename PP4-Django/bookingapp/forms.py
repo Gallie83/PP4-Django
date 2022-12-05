@@ -1,6 +1,5 @@
 from django import forms
 from .models import Booking
-from datetime import date
 
 
 # Nicer style for Date Picker

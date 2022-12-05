@@ -36,7 +36,7 @@
     <!-- Class Section -->
     <div class="about">
 
-        <div class="about-text text-center float-left border p-2">
+        <div class="about-text text-center float-left border p-2 rounded">
             <h2>Our Classes</h2>
             <hr>
             <p>
@@ -52,7 +52,7 @@
                 <br>
                 Want to book a private training sessions instead?
                 <br>
-                <a href="{% url 'date' %}" class="btn btn-outline-dark btn-light btn-sm m-2">Check availabilty here!</a>
+                <a href="{% url 'date' %}" class="btn btn-outline-dark btn-light btn-sm m-2">Request a session here!</a>
             </p>
         </div>
 
@@ -66,13 +66,8 @@
     <!-- Kids Class Section -->
     <div class="about">
 
-        <!-- Photo from a kids class -->
-        <div class="img-div float-left">
-            <img class="about-img rounded" src="/static/images/MT KIDS.jpg" alt="Photo of kids class">
-        </div>
-
         <!-- Kids class desciption -->
-        <div class="about-text text-center float-right border p-5">
+        <div class="about-text text-center float-right border p-5 rounded">
             <h2>Kids Classes</h2>
             <hr>
             <p>
@@ -84,12 +79,17 @@
             </p>
         </div>
 
+        <!-- Photo from a kids class -->
+        <div class="img-div float-left order-first">
+            <img class="about-img rounded" src="/static/images/MT KIDS.jpg" alt="Photo of kids class">
+        </div>
+
     </div>
 
     <!-- About the Gym section -->
     <div class="about">
 
-        <div class="about-text text-center float-left border p-2">
+        <div class="about-text text-center float-left border p-2 rounded">
             <h2>About Us</h2>
             <hr>
             <p> Opened in 2017 by David Fitzgerald, Shannon Muay Thai Academy has since continued to grow.
@@ -109,11 +109,7 @@
     <!-- Benefits of the sport section -->
     <div class="about">
 
-        <div class="img-div float-left">
-            <img class="about-img rounded" src="/static/images/benefits.jpg" alt="12 benefits of muay thai">
-        </div>
-
-        <div class="about-text text-center float-right border p-2">
+        <div class="about-text text-center float-right border p-2 rounded">
             <h2>About the Sport</h2>
             <hr>
             <p>Muay Thai, which translates to “Thai Boxing”, is the national sport of Thailand. It is a martial art with
@@ -128,12 +124,16 @@
             </p>
         </div>
 
+        <div class="img-div float-left order-first">
+            <img class="about-img rounded" src="/static/images/benefits.jpg" alt="12 benefits of muay thai">
+        </div>
+
     </div>
 
     <!-- Merchandise Section -->
     <div class="about">
 
-        <div class="about-text text-center float-left border p-5">
+        <div class="about-text text-center float-left border p-5 rounded">
             <h2>Merchandise</h2>
             <hr>
             <p>
@@ -153,9 +153,9 @@
 
 <!-- Images of training sessions at the gym -->
 <div class="home-img-div pt-5 mt-2">
-    <img class="home-img" src="/static/images/fa.png" alt="Picture from training session">
+    <img class="home-img disappear" src="/static/images/fa.png" alt="Picture from training session">
     <img class="home-img" src="/static/images/MT GYM.jpg" alt="Heavy bags in the gym">
-    <img class="home-img" src="/static/images/sparring.jpg" alt="Picture from training session">
+    <img class="home-img disappear" src="/static/images/sparring.jpg" alt="Picture from training session">
 </div>
 
 
