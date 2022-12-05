@@ -1,1 +1,1 @@
-web: gunicorn PP4-Django/bookings.wsgi
+web: gunicorn bookings.wsgi

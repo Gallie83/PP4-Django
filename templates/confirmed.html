@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mb-5 pb-5">
+    <!-- Navigation bar -->
+    {% include 'navbar.html' %}
+</div>
+<div class="about mt-5">
+
+    <div class="about-text text-center float-left pt-5 mt-4 border">
+        <!-- Confirmation that session request has been received -->
+        <h2>Your request has been received!</h2>
+        <hr>
+        <div class="py-3 mb-4 md-form md-outline" inline="true">
+            <p>We will contact you shortly to confirm your booking</p>
+            <br>
+            <!-- Link to view bookings page -->
+            <a href="{% url 'view_bookings' %}" class="btn btn-outline-danger btn-sm m-2">View my Bookings</a>
+        </div>
+    </div>
+
+    <div class="img-div float-right">
+        <img class="about-img rounded" src="/static/images/MT check.jpg" alt="Training session picture">
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,228 @@
+body {
+    background-color: black;
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Title styling */
+#logo-title {
+    font-family: 'Lobster';
+    font-size: 2.5rem;
+    padding: .5rem;
+}
+
+#logo {
+    max-width: 7rem;
+}
+
+/* Navbar styles */
+.navbar {
+    width: 100%;
+    background-color: rgb(219, 222, 225);
+}
+
+/* Controls opacity of navbar as user scrolls */
+.opacity {
+    opacity: .8;
+    transition: 2s;
+}
+
+.opacity-filled {
+    transition: 2s;
+    opacity: 1;
+}
+
+.nav-link {
+    color: rgb(255, 0, 0);
+    font-size: large;
+}
+
+/* Hero Image on the home page */
+.hero-img {
+    background: url('/static/images/bag.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* Class times on hero image */
+.times {
+    color: white;
+    padding-left: 60%;
+    margin-top: 8rem;
+    padding-bottom: 3rem;
+    font-size: large;
+}
+
+h2 {
+    padding: 1rem;
+    margin: 0;
+}
+
+hr {
+    width: 60%;
+    margin-left: 20%;
+}
+
+/* Div that wraps around text and image on homepage */
+.about {
+    margin: 2rem;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+}
+
+/* Div that wraps around image on homepage */
+.img-div {
+    width: 45%;
+    margin: auto;
+}
+
+/* Home page images */
+.about-img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+/* Home page text */
+.about-text {
+    color: white;
+    width: 45%;
+    height: 100%;
+    margin: auto;
+    /* display: table-cell; */
+    vertical-align: middle;
+}
+
+/* Wraps around images at bottom of home page */
+.home-img-div {
+    overflow: auto;
+    width: 100%;
+}
+
+/* Images at bottom of home screen */
+.home-img {
+    width: 33%;
+    display: inline-block;
+}
+
+/* Login and register div styling */
+.register {
+    width: 50%;
+}
+
+footer {
+    clear: both;
+    z-index: 1;
+    background-color: rgb(219, 222, 225);
+    width: 100%;
+    text-align: center;
+    color: black;
+    padding: 1em;
+    margin-top: 1em;
+    bottom: 0;
+    position: relative;
+}
+
+/* Media queries */
+@media screen and (max-width: 1000px) {
+
+    /* Home screen styling */
+    .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .about {
+        display: block;
+        max-width: 100%;
+    }
+
+    .about-text,
+    .register {
+        width: 80%;
+        margin: auto;
+    }
+
+    .img-div {
+        width: 55%;
+        margin: 1rem auto;
+    }
+
+    /* Aligns links in navbar dropdown to center */
+    .nav-link {
+        text-align: center;
+    }
+
+}
+
+/* Condenses 3 images at home screen bottom to one */
+@media screen and (max-width:880px) {
+    .home-img {
+        width: 100%;
+    }
+
+    .disappear {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:800px) {
+    .about-text {
+        width: 90%;
+    }
+
+    .img-div {
+        width: 75%;
+    }
+
+}
+
+/* Hides Logo on bigger screens */
+@media screen and (min-width:650px) {
+    .small-logo {
+        display: none;
+    }
+}
+
+/* Media Queries for small screens */
+@media screen and (max-width:650px) {
+    .hero-img {
+        background: black;
+        /* Adds white line below class times */
+        border-bottom: 1px solid white;
+    }
+
+    .times {
+        padding: 0;
+    }
+
+    #logo-title {
+        display: none;
+    }
+
+    .small-logo {
+        max-width: 5rem;
+        margin-left: 1rem;
+    }
+
+    .about-text,
+    .register {
+        width: 100%;
+    }
+
+    /* Delete booking button */
+    .delete-booking {
+        display: block;
+    }
+
+    .img-div {
+        width: 100%;
+    }
+
+}

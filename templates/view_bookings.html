@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mb-5 pb-5">
+    <!-- Navigation bar -->
+    {% include 'navbar.html' %}
+</div>
+<div class="about mt-5">
+
+    <div class="register text-center text-white pt-5 mt-4 border mx-auto">
+        <h2>Your booked sessions</h2>
+        <hr>
+
+        <div class="md-outline" inline="true">
+            <!-- If user deletes session, message appears -->
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-danger m-3 w-50 mx-auto" role="alert">
+                <strong>{{ message }}</strong>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            <!-- Displays users booked sessions from database -->
+            {% if booking_list %}
+            {% for booking in booking_list %}
+            <p class="booked bg-danger rounded py-2 my-2 w-75 mx-auto">You have a session booked at {{ booking.slot }}
+                on
+                {{ booking.booking_date }}
+                <!-- Button for deleting session -->
+                <a href="{% url 'delete_bookings' booking.id %}"
+                    class="delete-booking btn btn-outline-light btn-sm m-2">Delete</a>
+            </p>
+            {% endfor %}
+            {% else %}
+            <!-- If user has no sessions booked, returns a message -->
+            <p class="py-5"> You have no sessions booked! </p>
+            <!-- Link to booking page -->
+            <a class="btn btn-light btn-sm m-2" href="{% url 'book'%}">Book here!</a>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Image that sits behind class info and navbar -->
+<div class="hero-img">
+    <!-- Navigation bar -->
+    {% include 'navbar.html' %}
+    <!-- Class times information -->
+    <div class="times text-center">
+        <!-- If user logs in, shows success message -->
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success m-3" role="alert">
+            <strong>{{ message }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <img class="rounded" id="logo" src="/static/images/logo.jpg" alt="Muay Thai logo">
+        <br>
+        <!-- Information about class times -->
+        <h2>General Classes</h2>
+        <hr>
+        <p>Tuesday: 19:30</p>
+        <p>Wednesday: 19:30</p>
+        <p>Friday: 19:30</p>
+        <p>Saturday: 12:30</p>
+        <br>
+
+        <h2>Kid's Classes</h2>
+        <hr>
+        <p>Wednesday: 16:45</p>
+        <p>Saturday: 14:30</p>
+    </div>
+</div>
+<div class="container">
+    <!-- Class Section -->
+    <div class="about">
+
+        <div class="about-text text-center float-left border p-2 rounded">
+            <h2>Our Classes</h2>
+            <hr>
+            <p>
+                Our training sessions are open to all skill and cardio levels from beginner to advanced.
+                Training sessions consist of a combination of drills, pad-work, and for more advanced members -
+                clinching and sparring.
+                <br>
+                The classes are designed to improve your cardio and striking ability.
+                <br>
+                Any required gear is available at the gym for those who don't have their own.
+                <br>
+                Classes are €10 per session or monthly membership is €65.
+                <br>
+                Want to book a private training sessions instead?
+                <br>
+                <a href="{% url 'date' %}" class="btn btn-outline-dark btn-light btn-sm m-2">Request a session here!</a>
+            </p>
+        </div>
+
+        <!-- Picture from a private training session -->
+        <div class="img-div float-right">
+            <img class="about-img rounded" src="/static/images/ryan.png" alt="Picture of a kick from training session">
+        </div>
+
+    </div>
+
+    <!-- Kids Class Section -->
+    <div class="about">
+
+        <!-- Kids class desciption -->
+        <div class="about-text text-center float-right border p-5 rounded">
+            <h2>Kids Classes</h2>
+            <hr>
+            <p>
+                The kids classes teaches kids the fundamentals of the sport, while also mixing in fun games.
+                This shows the kids the basic principals of muay thai, while keeping things light-hearted and playful.
+                The aim of these classes is to get the kids interested in the sport, while ensuring they have fun and
+                enjoy each session.
+
+            </p>
+        </div>
+
+        <!-- Photo from a kids class -->
+        <div class="img-div float-left order-first">
+            <img class="about-img rounded" src="/static/images/MT KIDS.jpg" alt="Photo of kids class">
+        </div>
+
+    </div>
+
+    <!-- About the Gym section -->
+    <div class="about">
+
+        <div class="about-text text-center float-left border p-2 rounded">
+            <h2>About Us</h2>
+            <hr>
+            <p> Opened in 2017 by David Fitzgerald, Shannon Muay Thai Academy has since continued to grow.
+                With a mixed group of members from those actively competing to complete beginners, the gym has attracted
+                many new people to muay thai. From the Adult to Kids class, Shannon Muay Thai academy continues to show
+                the many positives the sport has to offer.
+            </p>
+        </div>
+
+        <div class="img-div float-right">
+            <img class="about-img rounded" src="/static/images/gympic.jpg" alt="Photo of gym with logo">
+        </div>
+
+    </div>
+
+
+    <!-- Benefits of the sport section -->
+    <div class="about">
+
+        <div class="about-text text-center float-right border p-2 rounded">
+            <h2>About the Sport</h2>
+            <hr>
+            <p>Muay Thai, which translates to “Thai Boxing”, is the national sport of Thailand. It is a martial art with
+                roots originating from military use dating back to around the 13th century during the time of the
+                Sukhothai Kingdom.
+                <br>
+                Muay Thai is known as the “Art of 8 limbs” because it makes use of 8 points of contact namely, punches,
+                elbows, knees and kicks. This differs it from other stand-up combat sports such as boxing (2 points -
+                fists) and karate (4 points - fists and feet).
+                <br>
+                Today, Muay Thai is practised and competed not only in Thailand, but also all around the world.
+            </p>
+        </div>
+
+        <div class="img-div float-left order-first">
+            <img class="about-img rounded" src="/static/images/benefits.jpg" alt="12 benefits of muay thai">
+        </div>
+
+    </div>
+
+    <!-- Merchandise Section -->
+    <div class="about">
+
+        <div class="about-text text-center float-left border p-5 rounded">
+            <h2>Merchandise</h2>
+            <hr>
+            <p>
+                We have a large range of merchandise, from club hoodies, shirts and muay-thai styled shorts, to
+                handwraps, shin-pads and gloves for training.
+                <br>
+                Browse through our wide selection in the gym today!
+            </p>
+        </div>
+
+        <div class="img-div float-right">
+            <img class="about-img rounded" src="/static/images/hoodie.jpg" alt="Club hoodie">
+        </div>
+
+    </div>
+</div>
+
+<!-- Images of training sessions at the gym -->
+<div class="home-img-div pt-5 mt-2">
+    <img class="home-img disappear" src="/static/images/fa.png" alt="Picture from training session">
+    <img class="home-img" src="/static/images/MT GYM.jpg" alt="Heavy bags in the gym">
+    <img class="home-img disappear" src="/static/images/sparring.jpg" alt="Picture from training session">
+</div>
+
+
+{% endblock %}
