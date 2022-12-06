@@ -22,13 +22,5 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = [
-            'user',
             'slot',
-            'booking_date',
         ]
-
-    # Hides user and booking_date fields for a cleaner look
-        widgets = {
-            'booking_date': forms.HiddenInput(),
-            'user': forms.HiddenInput(),
-        }
