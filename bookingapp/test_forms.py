@@ -4,7 +4,7 @@ from bookingapp.forms import DateForm, BookingForm
 
 class TestForms(SimpleTestCase):
 
-    # Tests DateForm
+    # Tests DateForm is valid
     def test_date_form_valid_data(self):
         form = DateForm(data={
             'user': 'admin',
