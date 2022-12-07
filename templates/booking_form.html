@@ -11,15 +11,28 @@
     {% if user.is_authenticated %}
 
     <div class="about-text text-center float-left pt-5 mt-4 border">
+        {% if available_slots %}
         <h2>Choose a Time</h2>
         <hr>
         <div class="md-form md-outline" inline="true">
             <form method="POST" class="p-5">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <input id="slot" type="submit" value="Request session time" />
+                <!-- Returns only available times on chosen day -->
+                <select name="slot" id="slot">
+                    {% for time in available_slots %}
+                    <option value="{{ time }}">{{ time }}</option>
+                    {% endfor %}
+                </select>
+                <input id="book" type="submit" value="Book this time" />
             </form>
         </div>
+        {% else %}
+        <h2>Sorry!</h2>
+        <hr>
+        <p>We are fully booked on that day, please try a different date!</p>
+        <!-- Link to Login page -->
+        <a class="btn btn-light btn-sm m-2" href="{% url 'date'%}">Choose another date</a>
+        {% endif %}
     </div>
 
     <div class="img-div float-right">

@@ -56,7 +56,6 @@ def DateView(request):
             # Stores inputted date as string to be used in booking form
             request.session["dateSelected"] = str(
                 form.cleaned_data["booking_date"])
-            print(form.cleaned_data)
 
             # Redirects user to booking form page
             return redirect('book')
@@ -78,7 +77,6 @@ def BookingView(request):
     # Searches database for all sessions booked on chosen date
     booked_slots = Booking.objects.filter(booking_date=request.session.get(
         'dateSelected')).values_list('slot', flat=True)
-    print(booked_slots)
 
     available_slots = []
 
@@ -88,22 +86,14 @@ def BookingView(request):
             print(slot)
             available_slots.append(slot[0])
 
-    print(available_slots)
-
     if form.is_valid():
-        print(form.cleaned_data)
         form.save()
 
         # Redirects user to confirmed booking page
         return redirect('confirmed')
 
-    else:
-        print("Invalid")
-        print(form)
-
     context = {
         'form': form,
         'available_slots': available_slots,
-        'booked_slots': booked_slots
     }
     return render(request, "booking_form.html", context)
