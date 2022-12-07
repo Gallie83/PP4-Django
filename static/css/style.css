@@ -41,7 +41,8 @@ body {
 
 /* Hero Image on the home page */
 .hero-img {
-    background: url('/static/images/bag.jpg');
+    /* background: url('/static/images/bag.jpg'); */
+    background: url('{{ static }} images/bag.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
