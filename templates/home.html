@@ -3,7 +3,7 @@
 {% block content %}
 {% load static %}
 <!-- Hero Image that sits behind class info and navbar -->
-<div style="background-image: url('{{ static }} images/bag.png ');" class="hero-img">
+<div style="background-image: url('{% static  " images/bag.jpg" %}');" class="hero-img">
     <!-- Navigation bar -->
     {% include 'navbar.html' %}
     <!-- Class times information -->
