@@ -1,3 +1,4 @@
+from django.test import TestCase
 from django.test import SimpleTestCase
 from django.test.client import Client
 from django.contrib.auth.models import User
@@ -24,17 +25,17 @@ class TestViews(SimpleTestCase):
         self.assertTemplateUsed(response, 'date_form.html')
 
 
-# # Tests BookingView page renders correct template
-# def test_date_view_page(self):
-#     response = self.client.get('/book/')
-#     self.assertEqual(response.status_code, 200)
-#     self.assertTemplateUsed(response, 'booking_form.html')
+class TestViewsLogin(TestCase):
 
+    # # Tests BookingView page renders correct template
+    # def test_date_view_page(self):
+    #     response = self.client.get('/book/')
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertTemplateUsed(response, 'booking_form.html')
 
-# def setUp(self):
-#     self.client = Client()
-#     self.user = User.objects.create_user(
-#         'john', 'lennon@thebeatles.com', 'johnlikestocode')
+    def setUp(self):
+        self.client.force_login(
+            User.objects.get_or_create(username='testuser')[0])
 
 # def test_bookingview_adds_booking(self):
 #     self.user = User.objects.create_user(
