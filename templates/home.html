@@ -15,7 +15,7 @@
         </div>
         {% endfor %}
         {% endif %}
-        <img class="rounded" id="logo" src="/static/images/logo.jpg" alt="Muay Thai logo">
+        <img class="rounded" id="logo" src="{% static 'images/logo.jpg' %}" alt="Muay Thai logo">
         <br>
         <!-- Information about class times -->
         <h2>General Classes</h2>
@@ -58,7 +58,8 @@
 
         <!-- Picture from a private training session -->
         <div class="img-div float-right">
-            <img class="about-img rounded" src="/static/images/ryan.png" alt="Picture of a kick from training session">
+            <img class="about-img rounded" src="{% static 'images/ryan.png' %}"
+                alt="Picture of a kick from training session">
         </div>
 
     </div>
@@ -81,7 +82,7 @@
 
         <!-- Photo from a kids class -->
         <div class="img-div float-left order-first">
-            <img class="about-img rounded" src="/static/images/MT KIDS.jpg" alt="Photo of kids class">
+            <img class="about-img rounded" src="{% static 'images/MT KIDS.jpg' %}" alt="Photo of kids class">
         </div>
 
     </div>
@@ -100,7 +101,7 @@
         </div>
 
         <div class="img-div float-right">
-            <img class="about-img rounded" src="/static/images/gympic.jpg" alt="Photo of gym with logo">
+            <img class="about-img rounded" src="{% static 'images/gympic.jpg' %}" alt="Photo of gym with logo">
         </div>
 
     </div>
@@ -125,7 +126,7 @@
         </div>
 
         <div class="img-div float-left order-first">
-            <img class="about-img rounded" src="/static/images/benefits.jpg" alt="12 benefits of muay thai">
+            <img class="about-img rounded" src="{% static 'images/benefits.jpg' %}" alt="12 benefits of muay thai">
         </div>
 
     </div>
@@ -145,7 +146,7 @@
         </div>
 
         <div class="img-div float-right">
-            <img class="about-img rounded" src="/static/images/hoodie.jpg" alt="Club hoodie">
+            <img class="about-img rounded" src="{% static 'images/hoodie.jpg' %}" alt="Club hoodie">
         </div>
 
     </div>
@@ -153,9 +154,9 @@
 
 <!-- Images of training sessions at the gym -->
 <div class="home-img-div pt-5 mt-2">
-    <img class="home-img disappear" src="/static/images/fa.png" alt="Picture from training session">
-    <img class="home-img" src="/static/images/MT GYM.jpg" alt="Heavy bags in the gym">
-    <img class="home-img disappear" src="/static/images/sparring.jpg" alt="Picture from training session">
+    <img class="home-img disappear" src="{% static 'images/fa.png' %}" alt="Picture from training session">
+    <img class="home-img" src="{% static 'images/MT GYM.jpg' %}" alt="Heavy bags in the gym">
+    <img class="home-img disappear" src="{% static 'images/sparring.jpg' %}" alt="Picture from training session">
 </div>
 
 
