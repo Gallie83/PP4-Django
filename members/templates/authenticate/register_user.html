@@ -7,17 +7,19 @@
 </div>
 <div class="about my-5">
 
-    <div class="register text-white text-center py-4 mt-4 border mx-auto">
+    <div class="members text-white text-center py-4 mt-4 border mx-auto">
 
         <h2 class="text-center">Register</h2>
 
+        <!-- Invalid registration error message -->
         {% if form.errors %}
-        <div class="alert alert-danger m-3 w-50" role="alert">
+        <div class="alert alert-danger m-3 w-50 mx-auto" role="alert">
             <strong>There was an error with your registration, please try again</strong>
         </div>
         {% endif %}
 
         <hr>
+        <!-- Registration form -->
         <div class="md-form md-outline w-50 mx-auto" inline="true">
             <form method="POST">
                 {% csrf_token %}
@@ -29,6 +31,7 @@
                 </div>
                 <hr>
                 <p class="text-center">Already a member?
+                    <!-- Link to login page -->
                     <a class="btn btn-light btn-sm m-2" href="{% url 'login' %}">Login here!</a>
                 </p>
             </form>

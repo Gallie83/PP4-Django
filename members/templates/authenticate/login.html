@@ -7,9 +7,10 @@
 </div>
 <div class="about my-5">
 
-    <div class="register text-white text-center py-4 mt-4 border mx-auto">
+    <div class="members text-white text-center py-4 mt-4 border mx-auto">
         <h2>Login</h2>
 
+        <!-- Logout message or if Login invalid -->
         {% if messages %}
         {% for message in messages %}
         <div class="alert alert-danger m-3 w-75 mx-auto" role="alert">
@@ -19,6 +20,7 @@
         {% endif %}
 
         <hr>
+        <!-- Login Form -->
         <div class="md-form md-outline mx-auto" inline="true">
             <form method="POST" class="px-5 py-2">
                 {% csrf_token %}
@@ -32,6 +34,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary my-3">Login</button>
                 <hr>
+                <!-- Link to register page -->
                 <p>Not registered yet?
                     <a class="btn btn-light btn-sm m-2" href="{% url 'register_user' %}">Join here!</a>
                 </p>

@@ -34,6 +34,7 @@ body {
     opacity: 1;
 }
 
+/* Navbar link */
 .nav-link {
     color: rgb(255, 0, 0);
     font-size: large;
@@ -41,8 +42,6 @@ body {
 
 /* Hero Image on the home page */
 .hero-img {
-    background: url('/static/images/bag.jpg');
-    /* background-image: url('{{ static }} images/bag.jpg'); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -111,7 +110,7 @@ hr {
 }
 
 /* Login and register div styling */
-.register {
+.members {
     width: 50%;
 }
 
@@ -144,7 +143,7 @@ footer {
     }
 
     .about-text,
-    .register {
+    .members {
         width: 80%;
         margin: auto;
     }
@@ -173,6 +172,7 @@ footer {
 
 }
 
+/* Cleans up homepage widths */
 @media screen and (max-width:800px) {
     .about-text {
         width: 90%;
@@ -193,6 +193,8 @@ footer {
 
 /* Media Queries for small screens */
 @media screen and (max-width:650px) {
+
+    /* Sets hero image to black background */
     .hero-img {
         background: black;
         /* Adds white line below class times */
@@ -203,17 +205,19 @@ footer {
         padding: 0;
     }
 
+    /* Removes Title in navbar */
     #logo-title {
         display: none;
     }
 
+    /* Replaces Title with logo */
     .small-logo {
         max-width: 5rem;
         margin-left: 1rem;
     }
 
     .about-text,
-    .register {
+    .members {
         width: 100%;
     }
 
