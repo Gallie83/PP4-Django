@@ -24,8 +24,21 @@ def view_bookings(request):
         # Only returns bookings made by user
         booking_list = Booking.objects.filter(user=request.user)
 
-        return render(request, 'view_bookings.html',
-                      {'booking_list': booking_list})
+        past_booking_list = []
+
+    # Iterates through list and converts date from a string to a date
+        for session in booking_list:
+            sessionDate = session.booking_date
+            newDate = datetime.datetime.strptime(
+                sessionDate, '%Y-%m-%d').date()
+            # Checks to see if date is a past date
+            if newDate < date.today():
+                past_booking_list.append(session)
+
+        context = {'booking_list': booking_list,
+                   'past_booking_list': past_booking_list}
+
+        return render(request, 'view_bookings.html', context)
 
     # Brings user to log in page
     else:
@@ -51,6 +64,11 @@ def DateView(request):
         # Checks if date is before current date and throws error message
         if newDate < date.today():
             messages.success(request, ("Invalid date selected!"))
+            return redirect('date')
+        # Stops user from making a booking on todays date
+        elif newDate == date.today():
+            messages.success(
+                request, ("Sessions must be booked at least a day in advance!"))
             return redirect('date')
         else:
             # Stores inputted date as string to be used in booking form
@@ -83,7 +101,6 @@ def BookingView(request):
     # Stores available times on chosen date in available_slots
     for slot in Slots:
         if slot[0] not in booked_slots:
-            print(slot)
             available_slots.append(slot[0])
 
     if form.is_valid():

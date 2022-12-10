@@ -8,7 +8,7 @@
 <div class="about mt-5">
 
     <div class="members text-center text-white pt-5 mt-4 border mx-auto">
-        <h2>Your booked sessions</h2>
+        <h2>My Bookings</h2>
         <hr>
 
         <div class="md-outline" inline="true">
@@ -21,15 +21,31 @@
             {% endfor %}
             {% endif %}
 
-            <!-- Displays users booked sessions from database -->
+            <!-- Displays users upcoming booked sessions from database -->
             {% if booking_list %}
+            <h3>Upcoming sessions</h3>
+            <hr>
             {% for booking in booking_list %}
+            <!-- Checks if session is upcoming or past -->
+            {% if booking not in past_booking_list %}
             <p class="booked bg-danger rounded py-2 my-2 w-75 mx-auto">You have a session booked at {{ booking.slot }}
                 on
                 {{ booking.booking_date }}
                 <!-- Button for deleting session -->
                 <a href="{% url 'delete_bookings' booking.id %}"
                     class="delete-booking btn btn-outline-light btn-sm m-2">Delete</a>
+            </p>
+            {% endif %}
+            {% endfor %}
+            <hr>
+            <!-- Users previous sessions -->
+            <h3>Past Sessions</h3>
+            <hr>
+            {% for booking in past_booking_list %}
+
+            <p class="booked bg-danger rounded py-3 my-2 w-75 mx-auto">You completed a session at {{ booking.slot }}
+                on
+                {{ booking.booking_date }}
             </p>
             {% endfor %}
             {% else %}
