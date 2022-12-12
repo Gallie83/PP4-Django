@@ -1,6 +1,6 @@
 # **_Shannon Muay Thai Academy_**
 
-Shannon Muay Thai Academy is a muay thai kickboxing gym located in Shannon, Co. Clare. This website is designed users information about both the gym and the sport, and for users to be able to request private training sessions at times that suit them. 
+Shannon Muay Thai Academy is a muay thai kickboxing gym located in Shannon, Co. Clare. This website is designed to give users information about both the gym and the sport, and for users to be able to request private training sessions at times that suit them. 
 
 Welcome to the <a href="https://pp4-django-bookings.herokuapp.com/" target="_blank" rel="noopener">Shannon Muay Thai Academy</a> Website.
 
@@ -50,7 +50,7 @@ Welcome to the <a href="https://pp4-django-bookings.herokuapp.com/" target="_bla
       I chose this font as it was close to the style of the gyms actual logo title font.
     ![Font image](readme-images/lobster.png)
 
-      For the remainder of the website I left the font as the default boostrap font, as it hsa a clean, legible look.
+      For the remainder of the website I left the font as the default boostrap font, as it has a clean, legible look.
 
  * ### Colour Scheme
       The colour scheme eventually chosen is mostly black with a secondary color of light grey as that is the color of the gyms clothing items. I added red to the navbar links and the users bookings to make them stand out and prevent the website from having a two tone color palette.
@@ -72,7 +72,7 @@ The gyms website is designed to be easy for users to navigate and simple for use
     ![Login Confirm image](readme-images/login-confirm.png)
 
     * Both login and register pages have messages to say if there was an error and asking the user to try again.
-    ![Login Page image](readme-images/login-page.png)
+    ![Login Retry image](readme-images/login-retry.png)
 
     * Once logged in, the login and register pages become hidden in the navbar and instead there is a logout option. The View bookings page also now becomes available.
     ![Logged in navbar image](readme-images/logged-in-nav.png)
@@ -128,9 +128,12 @@ The gyms website is designed to be easy for users to navigate and simple for use
 # Technologies Used
 * [HTML5](https://html.spec.whatwg.org/) - provides the content and structure for the website.
 * [CSS](https://www.w3.org/Style/CSS/Overview.en.html) - provides the styling.
-* [Javascript](https://www.javascript.com/) - provides the logic for the website.
-* [Gitpod](https://www.gitpod.io/#get-started) - used to deploy the website.
+* [Javascript](https://www.javascript.com/) - used to change opacity of the navbar when scrolling.
+* [Heroku](https://dashboard.heroku.com/) - used to deploy the website.
 * [Github](https://github.com/) - used to host and edit the website.
+* [Django](https://www.djangoproject.com/) - used for linking logic and templates and forms. The backbone of the website.
+* [Boostrap](https://getbootstrap.com/) - used for quick and effective styling aswell as responsive navbar templates and responsiveness.
+* [Cloudinary](https://cloudinary.com/) - used for storing images.
 
 [Back to top](<#contents>)
 
@@ -182,3 +185,122 @@ The gyms website is designed to be easy for users to navigate and simple for use
 
 ### Views testing
 ![Views image](readme-images/views-testing.png)
+
+
+### Deployment
+
+**Deploying to Heroku**
+
+Requirements:
+
+* A Heroku account (Free or Paid)
+* ClearDB MySQL (Free or Paid)
+* ALLOWED_HOSTS - Must contain the Heroku URL
+* Procfile - Tells Heroku what kind of app it is `web: gunicorn issue_tracker.wsgi`
+* requirements.txt file - Containing all of the required dependencies `guinicorn must be in requirements.txt for Heroku`
+
+To deploy my project, I decided to go with [Heroku](https://www.heroku.com/). It was relatively straight forward and only took a matter of minutes before I had the project pushed from my local machine to a live production ready server. Although, if the project got more than a few users I would have to pay for ClearDB using Heroku as the free tier is very limited.
+
+I have broken my deployment process up into several simple steps:
+
+**$ notes a terminal command**
+
+* Login to access the Heroku Dashboard
+* On the dashboard, create a new app, choosing a name and region.
+* Set up my Django project for hosting with Heroku:
+  * Added my Heroku app URL to ALLOWED_HOSTS in settings.py
+  * Created a Procfile `web: gunicorn issue_tracker.wsgi`
+  * Installed guinicorn `$ pip install guinicorn` 
+  * Updated dependencies `$ pip freeze --local > requirements.txt`
+* Click on the newly created app to bring up more information- select `Resources`.
+* I then added ClearDB MySQL as a resource and made note of the SQL database details it provided:
+  * Database Name
+  * Username
+  * Password
+  * Host
+* I then added in all of my Config Vars by going to `Settings` in the Heroku top navigation bar.
+  * SECRET_KEY - random Django secret key
+  * DB_NAME - Provided by ClearDB MySQL
+  * DB_USER - Provided by ClearDB MySQL
+  * DB_PASSWORD - Provided by ClearDB MySQL
+  * DB_HOST - Provided by ClearDB MySQL
+  * DB_PORT - Usual 3306
+  * AWS_ACCESS_KEY_ID - Provided by AWS
+  * AWS_SECRET_ACCESS_KEY - Provided by AWS
+  * STRIPE_PUBLISHABLE - Provided by Stripe
+  * STRIPE_SECRET - Provided by Stripe
+* I also added `DISABLE_COLLECTSTATIC` with a value of `1` to my config vars as I collected my static files manually later.
+* I then moved on to the `Deploy` tab in the Heroku top navigation bar.
+* I opted to install the Heroku CLI as I'd need to run commands later such as migrate, collectstatic etc.
+* I then ran the following commands in my terminal ensuring I was in the correct directory (my project directory):
+  * `$ heroku login`
+  * `$ git add .`
+  * `$ git commit -m 'added Heroku Procfile and requirements`
+  * `$ git push heroku master`
+  * `$ heroku run python manage.py makemigrations`
+  * `$ heroku run python manage.py migrate`
+  * `$ heroku run python manage.py collectstatic`
+  * `$ heroku run python manage.py createsuperuser`
+* I then restarted all dynos to restart the app.
+* The application was then live, and I began to populate it.
+
+**Deploying on a local machine for testing**
+
+Requirements:
+
+* Terminal
+* Python 3.6+
+* PIP
+* MySQL (Unless you change the Database Default to sqlite in settings.py)
+
+I would highly recommend installing some kind of virtual environment to ensure that each project has it's own dependencies.
+
+Please also note that these commands may differ from OS to OS.
+
+**$ notes a terminal command**
+
+* Firstly, with MySQL installed on your local machine, open up a terminal and enter:
+  * `$ mysql -u <USERNAME> -p`
+  * Type in your password, it will display as blank.
+  * `$ create database <DATABASE_NAME>;`
+  * `$ exit;`
+* Now, create a directory somewhere on your hard drive.
+* Open up a terminal in the designated directory by either right clicking and pressing `Open in Terminal` or using your keyboard shortcut to open terminal (in my case, `Super + T`).
+* Now, if you have gone ahead and installed virtualenv you can enter into the terminal:
+  * `$ virtualenv -p python3 .`
+  * Note: there are other methods of doing this, so please see the documentation for more info.
+  * Once the virtual environment has completed setup:
+  * `$ source bin/activate` to activate the virtual environment.
+  * I suggest making a directory now called `src` or similar, to host the project files, and then change directory into there.
+  * Now, clone the project.
+  * `$ git clone git@github.com:Gallie83/PP4-Django.git .` if using SSH.
+  * `git clone https://github.com/Gallie83/PP4-Django.git .` if using HTTPS.
+  * This will unpack the files into the src file.
+* Now run the following command:
+  * `$ pip install -r requirements.txt` to install all the project requirements.
+* Once everything is installed, open up the project inside your code editor of choice.
+* Head over to `issue_tracker/settings.py` in here be sure to do two things:
+  * Change `DEBUG = False` to `DEBUG = True` to ensure static/media files are served correctly.
+  * Either change the database none environment vars to match your own database or move to the next step.
+* Adding in environment variables:
+  * Open up your file manager, go to your root directory `~/` and show hidden files, however you do it on your OS. For me, there is a hamburger menu with the option to show hidden files.
+  * From there, open up .bashrc in your editor of choice.
+  * Here is a list of all the environment variables
+    * SECRET_KEY - Optional, as you can enter a local string after the os.environ.get if you prefer.
+    * DB_NAME - Optional, as you can enter a local string after the os.environ.get if you prefer.
+    * DB_USER - Optional, as you can enter a local string after the os.environ.get if you prefer.
+    * DB_PASSWORD - Optional, as you can enter a local string after the os.environ.get if you prefer.
+    * DB_HOST - Optional, as you can enter a local string after the os.environ.get if you prefer.
+    * DB_PORT - Optional, as you can enter a local string after the os.environ.get if you prefer.
+    * AWS_ACCESS_KEY_ID - As long as you set `DEBUG = True` you should not need this.
+    * AWS_SECRET_ACCESS_KEY - As long as you set `DEBUG = True` you should not need this.
+    * STRIPE_PUBLISHABLE - Get it from your Stripe account.
+    * STRIPE_SECRET - Get it from  your Stripe account.
+* Now everything is set up, go back to the terminal window with the virtualenv running.
+* Then run the following:
+  * `$ python manage.py makemigrations`
+  * `$ python manage.py migrate`
+  * `$ python manage.py createsuperuser`
+  * `$python manage.py runserver`
+* And then you're ready to go!
+
