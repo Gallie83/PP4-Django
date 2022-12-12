@@ -48,11 +48,11 @@ Welcome to the <a href="https://pp4-django-bookings.herokuapp.com/" target="_bla
 
 * These wireframes were produced in [Figma](https://figma.com). I made frames for a full width display and then modeled for smaller screens once I had designed the full width diplay. The finished site varies slightly from the wireframes due to developments that occured during the creation process.
 
-![Desktop wireframe image](assets/wireframes/desktop-wireframe-1.png)
-![Desktop wireframe image](assets/wireframes/desktop-wireframe-2.png)
-![Desktop wireframe image](assets/wireframes/desktop-wireframe-3.png)
-![Desktop wireframe image](assets/wireframes/desktop-wireframe-4.png)
-![Desktop wireframe image](assets/wireframes/desktop-wireframe-5.png)
+![Desktop wireframe image](readme-images/wireframes/desktop-wireframe-1.png)
+![Desktop wireframe image](readme-images/wireframes/desktop-wireframe-2.png)
+![Desktop wireframe image](readme-images/wireframes/desktop-wireframe-3.png)
+![Desktop wireframe image](readme-images/wireframes/desktop-wireframe-4.png)
+![Desktop wireframe image](readme-images/wireframes/desktop-wireframe-5.png)
 
 * For smaller screens I condensed the website down and stacked content on top of each other. I also removed the gyms title logo from the navbar and replaced it with the gyms logo to keep the navbar from looking overcrowded. I also used a responsive navbar that included a dropdown menu on smaller screens from [boostrap](https://getbootstrap.com/docs/4.0/components/navbar/).
 
@@ -133,7 +133,7 @@ The gyms website is designed to be easy for users to navigate and simple for use
 
       ![View Booking image](readme-images/view.png)
 
-  * ### Resonsiveness
+  * ### Responsiveness
       * The website is responsive accross all screen sizes. On small screen sizes the images and content stack ontop each other. The website was tested on the following browsers with no visible issues for the user. Google Chrome, Microsoft Edge and Mozilla Firefox.
 
       * The responsive design tests were carried out manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/).
