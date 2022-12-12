@@ -26,6 +26,8 @@ def view_bookings(request):
 
         past_booking_list = []
 
+        upcoming_booking_list = []
+
     # Iterates through list and converts date from a string to a date
         for session in booking_list:
             sessionDate = session.booking_date
@@ -34,9 +36,12 @@ def view_bookings(request):
             # Checks to see if date is a past date
             if newDate < date.today():
                 past_booking_list.append(session)
+            else:
+                upcoming_booking_list.append(session)
 
         context = {'booking_list': booking_list,
-                   'past_booking_list': past_booking_list}
+                   'past_booking_list': past_booking_list,
+                   'upcoming_booking_list': upcoming_booking_list}
 
         return render(request, 'view_bookings.html', context)
 
