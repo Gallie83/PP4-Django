@@ -21,8 +21,9 @@
             {% endfor %}
             {% endif %}
 
-            <!-- Displays users upcoming booked sessions from database -->
+            <!-- Checks if user has any past or upcoming sessions -->
             {% if booking_list %}
+            <!-- Displays users upcoming booked sessions from database -->
             <h3>Upcoming sessions</h3>
             <hr>
             {% if upcoming_booking_list %}
@@ -36,6 +37,7 @@
             </p>
             {% endfor %}
             {% else %}
+            <!-- If user has no upcoming sessions booked -->
             <p class="py-5"> You have no upcoming sessions booked! </p>
             <!-- Link to booking page -->
             <a class="btn btn-light btn-sm m-2" href="{% url 'date'%}">Book here!</a>
@@ -55,7 +57,7 @@
             {% endfor %}
             {% endif %}
             {% else %}
-            <!-- If user has no sessions booked, returns a message -->
+            <!-- If user has no past or future sessions booked, returns a message -->
             <p class="py-5"> You have no sessions booked! </p>
             <!-- Link to booking page -->
             <a class="btn btn-light btn-sm m-2" href="{% url 'date'%}">Book here!</a>

@@ -8,19 +8,20 @@ Welcome to the <a href="https://pp4-django-bookings.herokuapp.com/" target="_bla
 
 * [**User Experience UX**](<#user-experience-ux>)
     *  [User Stories](<#user-stories>)
+    *  [Wireframes](<#wireframes>)
     * [Design Choices](<#design-choices>)
     *  [Typography](<#typography>)
     *  [Colour Scheme](<#colour-scheme>)
 * [**Features**](<#features>)
     * [**Existing Features**](<#existing-features>)
-         * [How To Play](<#how-to-play>)
-         * [Dealer Cards](<#dealer-cards>)
-         * [Player Cards](<#player-cards>)
-         * [Game Buttons](<#game-buttons>)
+         * [User Accounts](<#user-accounts>)
+         * [Bookings](<#bookings>)
          * [Responsiveness](<#responsiveness>)
     * [**Future Features**](<#future-features>)
 * [**Technologies Used**](<#technologies-used>)
 * [**Debugging**](<#debugging>)
+    * [**Available Times**](<#available-times>)
+    * [**Date Form and Booking Form**](<#date-form-and-booking-form>)
 * [**Testing**](<#testing>)
 * [**Deployment**](<#deployment>)
 * [**Credits**](<#credits>)
@@ -41,6 +42,20 @@ Welcome to the <a href="https://pp4-django-bookings.herokuapp.com/" target="_bla
 * As a user I want to be able to register for an account.
 * As a user I want to be able to easily log in and log out.
 
+[Back to top](<#contents>)
+
+## Wireframes
+
+* These wireframes were produced in [Figma](https://figma.com). I made frames for a full width display and then modeled for smaller screens once I had designed the full width diplay. The finished site varies slightly from the wireframes due to developments that occured during the creation process.
+
+![Desktop wireframe image](assets/wireframes/desktop-wireframe-1.png)
+![Desktop wireframe image](assets/wireframes/desktop-wireframe-2.png)
+![Desktop wireframe image](assets/wireframes/desktop-wireframe-3.png)
+![Desktop wireframe image](assets/wireframes/desktop-wireframe-4.png)
+![Desktop wireframe image](assets/wireframes/desktop-wireframe-5.png)
+
+* For smaller screens I condensed the website down and stacked content on top of each other. I also removed the gyms title logo from the navbar and replaced it with the gyms logo to keep the navbar from looking overcrowded. I also used a responsive navbar that included a dropdown menu on smaller screens from [boostrap](https://getbootstrap.com/docs/4.0/components/navbar/).
+
 
 [Back to top](<#contents>)
 ## Design Choices
@@ -48,12 +63,13 @@ Welcome to the <a href="https://pp4-django-bookings.herokuapp.com/" target="_bla
  * ### Typography
       The font I chose for the title in the navbar was 'Lobster', which I found on <a href="https://fonts.google.com/" target="_blank" rel="noopener">Google Fonts</a>.
       I chose this font as it was close to the style of the gyms actual logo title font.
+
     ![Font image](readme-images/lobster.png)
 
       For the remainder of the website I left the font as the default boostrap font, as it has a clean, legible look.
 
  * ### Colour Scheme
-      The colour scheme eventually chosen is mostly black with a secondary color of light grey as that is the color of the gyms clothing items. I added red to the navbar links and the users bookings to make them stand out and prevent the website from having a two tone color palette.
+      The colour scheme eventually chosen is mostly black with a secondary color of light grey as that is the color of the gyms clothing items. I added red to the navbar links and the users bookings to make them stand out and prevent the website from having a two tone color palette. I also had originally set the opacity of the navbar to 0.8 as I liked how it sat on the screen with the hero image. I noticed this could have some legibility issues when the user begins to scroll so I have the opacity change to 1 once the user scrolls 50 pixels.
 
 
 [Back to top](<#contents>)
@@ -65,48 +81,60 @@ The gyms website is designed to be easy for users to navigate and simple for use
   * ### User accounts
 
     * Users are able to create accounts quickly, with cleary laid out steps.
+
     ![Register Page image](readme-images/register-page.png)
 
     * If the user already has an account, there is a login page where the user only has to provide their username and password. If the user logs in correctly they are brought to the homepage with a message confirming they logged in.
+
     ![Login Page image](readme-images/login-page.png)
     ![Login Confirm image](readme-images/login-confirm.png)
 
     * Both login and register pages have messages to say if there was an error and asking the user to try again.
+
     ![Login Retry image](readme-images/login-retry.png)
 
     * Once logged in, the login and register pages become hidden in the navbar and instead there is a logout option. The View bookings page also now becomes available.
+
     ![Logged in navbar image](readme-images/logged-in-nav.png)
 
-    * When logging out, the user the then redirected to the login page with a message to confirm logout has been carried out successfully.
+    * When logging out, the user is then redirected to the login page with a message to confirm logout has been carried out successfully.
+
     ![Logout image](readme-images/logout.png)
 
 [Back to top](<#contents>)
 
   * ### Bookings
 
-      * If logged in, the user is able book private training sessions through the bookings page. First the user if brought a page where they select the date they want to make the booking.
+      * If logged in, the user is able book private training sessions through the bookings page. First the user is brought to a page where they can select the date they want to make the booking for.
+
       ![Date picker image](readme-images/date-pick.png)
 
       * If the user tries to pick a date that has already passed they receive an invalid date message.
+
       ![Invalid date image](readme-images/invalid-date.png)      
 
       * If the user tries to pick the current date they will get this message.
+
       ![Current date image](readme-images/current-date.png)      
 
       * The user is then brought to a page where they can pick what time they would like to book the session for. The user is only given the option for times that have not been booked yet.
+
       ![Available times image](readme-images/times.png)
 
-      * If there is no available times left on the date chosen the user is asked to choose a different date with a link back to the date picker page.
+      * If there is no available times left on the date chosen, the user is asked to choose a different date with a link back to the date picker page.
+
       ![No available times image](readme-images/full.png)
 
       * Once a booking is made the user is brought to a confirmation page with a link to view all of their bookings.
+
       ![Confirmed Booking image](readme-images/confirmed.png)
 
       * On the view bookings page, the bookings the user sees are broken up into past and upcoming bookings. If the user deletes a booking then a message pops up to confirm deletion.
+
       ![View Booking image](readme-images/view.png)
 
   * ### Resonsiveness
-      * The website is responsive accross all screen sizes. On small screen sizes the images and content stack ontop each other. The logo title in the navbar also changes to a picture of the gyms logo to keep the website looking neat and legible. The website was tested on the following browsers with no visible issues for the user. Google Chrome, Microsoft Edge and Mozilla Firefox.
+      * The website is responsive accross all screen sizes. On small screen sizes the images and content stack ontop each other. The website was tested on the following browsers with no visible issues for the user. Google Chrome, Microsoft Edge and Mozilla Firefox.
 
       * The responsive design tests were carried out manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/).
 
@@ -116,6 +144,12 @@ The gyms website is designed to be easy for users to navigate and simple for use
 | Images | pass    | pass      | pass     | pass | pass            | pass            |
 | Links  | pass    | pass      | pass     | pass | pass            | pass            |
 
+# Models 
+* For this project, I only have one custom django model- The Booking model. This model has 3 fields- The slot field, the user field and the booking date field. The slot field is the time that the booking will take place. This comes from a tuple called Slots. The user field is whichever user is logged in when the booking is reserved. And finally the booking date field is a charachter field which stores the date of the booking. I originally had this as a datefield but changed it as I talk about [here](<#date-form-and-booking-form>).
+
+![New Model image](readme-images/new-model.png)
+
+[Back to top](<#contents>)
 
 ## Future Features 
 
@@ -131,7 +165,7 @@ The gyms website is designed to be easy for users to navigate and simple for use
 * [Javascript](https://www.javascript.com/) - used to change opacity of the navbar when scrolling.
 * [Heroku](https://dashboard.heroku.com/) - used to deploy the website.
 * [Github](https://github.com/) - used to host and edit the website.
-* [Django](https://www.djangoproject.com/) - used for linking logic and templates and forms. The backbone of the website.
+* [Django](https://www.djangoproject.com/) - a python framework, used for linking logic and templates and forms. The backbone of the website.
 * [Boostrap](https://getbootstrap.com/) - used for quick and effective styling aswell as responsive navbar templates and responsiveness.
 * [Cloudinary](https://cloudinary.com/) - used for storing images.
 
@@ -140,27 +174,33 @@ The gyms website is designed to be easy for users to navigate and simple for use
 # Debugging
 
 ## Available Times
-* While making this website encountered many problems. The problem that I spent the most time figuring out was how to use only have the available times as options to book private sessions. I was able to display the available times in the dropdown menu, but whenever I would try to submit the form it would say that the form is invalid. 
+* While making this website I encountered many problems. The problem that I spent the most time figuring out was how to use only have the available times as options to book private sessions. I was able to display the available times in the dropdown menu, but whenever I would try to submit the form it would say that the form is invalid. 
 
 * I was using a model form connected to the bookings model. I tried to set the fields required to false but the form was still invalid.
+
 ![Debug times image](readme-images/debug-times.png)
 
 * I managed to get the form to work by only having the 'slot' field in the model form. 
+
 ![Times Fix image](readme-images/times-fix.png)
 
 ## Date Form and Booking Form
 * My main intention with the functionality for this webiste is that the user would first choose the date they wanted to have a private session, and then they would be able to see what times were available based on their choice. I decided to carry this out by having the user complete two forms to book a session, the first would be where they choose a date and the second would be where the available times are displayed. Carrying the chosen date from one form to another proved to be more difficult than expected.
 
-* First I tried to store the first date chosen as a javascript variable which would then be called upon when the second form would load. This would not work however as I had the two forms on seperate templates so the javascript variable kept reseting when I would open the next page.
+* First I tried to store the first date chosen as a javascript variable which would then be called upon when the second form would load. This would not work however as I had the two forms on seperate templates so the javascript variable kept resetting when I would open the next page.
+
 ![Javascript Variable image](readme-images/js-variable.png)
  
 * I then changed my approach and changed how my booking form was set up. I initially had the Slot field as its own model, where I had all the slot times as model instances that the Booking model would point as a foreign key when making a booking. 
+
 ![Old Model image](readme-images/old-model.png)
 
 * I changed this to a tuple of times that would be available everyday. I also changed the datefield to a charfield. 
+
 ![New Model image](readme-images/new-model.png)
 
 * I then took the input of the date form using [Djangos Sessions](https://docs.djangoproject.com/en/4.1/topics/http/sessions/) and converted it into a string, which would I then call upon in the booking form and use as the booking_date input instance when making a booking.
+
 ![Date String image](readme-images/date-string.png)
 ![Booking String image](readme-images/booking-string.png)
 
@@ -304,3 +344,22 @@ Please also note that these commands may differ from OS to OS.
   * `$python manage.py runserver`
 * And then you're ready to go!
 
+[Back to top](<#contents>)
+
+# Credits
+### Content
+
+* The fonts came from [Google Fonts](https://fonts.google.com/).
+* All code, except where otherwise specified, was written by me - Kevin Gallagher.
+
+### Media
+* The Hero Image came from [Unsplash](https://unsplash.com/).
+* All other images came from the gyms [Instagram](https://www.instagram.com/shannon_muaythaiacademy/?hl=en) and [Facebook](https://www.facebook.com/profile.php?id=100063625269637)
+[Back to top](<#contents>)
+
+# Acknowledgements
+The site was completed as a Portfolio 4 Project piece for the Full Stack Software Developer Diploma at [Code Institute](https://codeinstitute.net/). As such I would like to thank my mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/), the Slack community, and all at the Code Institute for their help and support. I would also like to thank my friend Luke Walsh, for helping me when some problems felt unsolvable. This project means a lot to me as I have trained at this gym since it opened and have seen it develop from the ground up. I am very proud and thankful that I was able to carry out this project. 
+
+Kevin Gallagher 2022.
+
+[Back to top](<#contents>)
