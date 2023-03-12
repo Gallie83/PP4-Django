@@ -34,13 +34,24 @@ Welcome to the <a href="https://pp4-django-bookings.herokuapp.com/" target="_bla
 
 ## User Stories
 
+### Viewing And Navigation
 * As a user I want to clearly see information about class times.
 * As a user I want to see information about the background of the club and sport.
-* As a user I want to be able to book training sessions easily on the website.
-* As a user I want to have access to all my currently booked private sessions.
-* As a user I want to be able to delete any currently booked private session.
+* As a site user I want to have access to the website through any device.
+* As a site user I want to have access to all pages through the navbar.
+* As a site user I want to be able to view contact information for the business.
+
+### Registration And User Accounts
 * As a user I want to be able to register for an account.
 * As a user I want to be able to easily log in and log out.
+* As a user I want to visual confirmation when logging in and out.
+
+### Bookings
+* As a user I want to be able to see what time-slots are available on specific dates.
+* As a user I want to be able to book training sessions easily on the website.
+* As a user I want to have access to all my currently booked private sessions.
+* As a user I want to be able to delete or edit any currently booked private session.
+* As a user I want to visual confirmation when adding or changing a booking.
 
 [Back to top](<#contents>)
 

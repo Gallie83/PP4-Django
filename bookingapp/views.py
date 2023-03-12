@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import DateForm, BookingForm
 from django.shortcuts import redirect
 from .models import Booking, Slots
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from datetime import date
 import datetime
@@ -51,6 +52,7 @@ def view_bookings(request):
 
 
 # Allows user to delete selected booking
+@login_required
 def delete_bookings(request, booking_id):
     booking = Booking.objects.get(pk=booking_id)
     booking.delete()
@@ -110,7 +112,6 @@ def BookingView(request):
 
     if form.is_valid():
         form.save()
-
         # Redirects user to confirmed booking page
         return redirect('confirmed')
 
