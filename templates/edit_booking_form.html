@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mb-5 pb-5">
+    <!-- Navigation bar -->
+    {% include 'navbar.html' %}
+</div>
+<div class="about mt-5">
+
+    <!-- Ensures user is logged in to access page -->
+    {% if user.is_authenticated %}
+
+    <div class="about-text text-center float-left pt-5 mt-4 border">
+        <!-- If there is available times, it displays them in form -->
+        {% if available_slots %}
+        <h2>Choose a new time</h2>
+        <hr>
+        <div class="md-form md-outline" inline="true">
+            <form method="POST" class="p-5">
+                {% csrf_token %}
+                <!-- Returns only available times on chosen day -->
+                <select name="slot" id="slot">
+                    {% for time in available_slots %}
+                    <option value="{{ time }}">{{ time }}</option>
+                    {% endfor %}
+                </select>
+                <input id="book" type="submit" value="Book this time" />
+            </form>
+        </div>
+        {% else %}
+        <!-- If all times are booked on that day -->
+        <h2>Sorry!</h2>
+        <hr>
+        <p>We are fully booked on that day, please try a different date!</p>
+        <!-- Link to Login page -->
+        <a class="btn btn-light btn-sm m-2" href="{% url 'date' %}">Choose another date</a>
+        {% endif %}
+    </div>
+
+    <div class="img-div float-right">
+        {% load static %}
+        <img class="about-img rounded" src="{% static 'images/MT_check.jpg' %}" alt="Training session picture">
+    </div>
+
+    {% else %}
+    <!-- If user not logged in, a link to login page -->
+    <div class="w-50 mx-auto text-center pt-5 mt-4 border">
+        <div class="w-50 mx-auto mb-5 text-white ">
+            <h2>Sorry!</h2>
+            <hr>
+            <p class="p-3">You must be logged in to book a private training session.</p>
+
+            <!-- Login page link -->
+            <a class="btn btn-light btn-sm m-2" href="{% url 'login'%}">Login here!</a>
+        </div>
+    </div>
+
+    {% endif %}
+</div>
+{% endblock %}

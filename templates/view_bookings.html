@@ -28,10 +28,12 @@
             <hr>
             {% if upcoming_booking_list %}
             {% for booking in upcoming_booking_list %}
-            <p class="booked bg-danger rounded py-2 my-2 w-75 mx-auto">You have a session booked at {{ booking.slot }}
+            <p class="booked bg-danger rounded py-2 my-2 w-75 mx-auto">Booking at {{ booking.slot }}
                 on
                 {{ booking.booking_date }}
                 <!-- Button for deleting session -->
+                <a href="{% url 'edit_date' booking.id %}"
+                    class="delete-booking btn btn-outline-light btn-sm m-2">Edit</a>
                 <a href="{% url 'delete_bookings' booking.id %}"
                     class="delete-booking btn btn-outline-light btn-sm m-2">Delete</a>
             </p>
