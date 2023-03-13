@@ -153,6 +153,10 @@ The gyms website is designed to be easy for users to navigate and simple for use
 
       ![View Booking image](readme-images/view.png)
 
+      * If the clicks on the edit session button, they are asked to choose another date and time. Before they complete changing their booking details they are given this pop up message to confirm that their old session will be deleted and replaced with the new one.
+
+      ![Edit Booking Message image](readme-images/edit-pop-up.png)
+
   * ### Responsiveness
       * The website is responsive accross all screen sizes. On small screen sizes the images and content stack ontop each other. The website was tested on the following browsers with no visible issues for the user. Google Chrome, Microsoft Edge and Mozilla Firefox.
 

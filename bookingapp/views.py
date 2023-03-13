@@ -38,7 +38,7 @@ def view_bookings(request):
             if newDate < date.today():
                 past_booking_list.append(session)
             else:
-                upcoming_booking_list.append(session)
+                upcoming_booking_list.insert(0, session)
 
         context = {'booking_list': booking_list,
                    'past_booking_list': past_booking_list,
