@@ -65,7 +65,8 @@ def DateView(request):
         # Stops user from making a booking on todays date
         elif newDate == date.today():
             messages.success(
-                request, ("Sessions must be booked at least a day in advance!"))
+                request,
+                ("Sessions must be booked at least a day in advance!"))
             return redirect('date')
         else:
             # Stores inputted date as string to be used in booking form
@@ -129,7 +130,8 @@ def edit_date(request, booking_id):
         # Stops user from making a booking on todays date
         elif newDate == date.today():
             messages.success(
-                request, ("Sessions must be booked at least a day in advance!"))
+                request,
+                ("Sessions must be booked at least a day in advance!"))
             return redirect('edit_date', booking_id=old_booking_pk)
         else:
             # Stores inputted date as string to be used in booking form

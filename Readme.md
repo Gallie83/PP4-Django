@@ -17,13 +17,19 @@ Welcome to the <a href="https://pp4-django-bookings.herokuapp.com/" target="_bla
     * [**Existing Features**](<#existing-features>)
          * [User Accounts](<#user-accounts>)
          * [Bookings](<#bookings>)
-         * [Responsiveness](<#responsiveness>)
     * [**Future Features**](<#future-features>)
 * [**Technologies Used**](<#technologies-used>)
+* [**Testing**](<#testing>)
+    * [**HTML Testing**](<#html-testing>)
+    * [**CSS Testing**](<#css-testing>)
+    * [**Lighthouse Testing**](<#lighthouse-testing>)
+    * [**PEP Validation**](<#pep-validation>)
+         * [Responsiveness](<#responsiveness>)
+    * [**Django Testing**](<#django-testing>)
+    * [**User Stories Testing**](<#user-stories-testing>)
 * [**Debugging**](<#debugging>)
     * [**Available Times**](<#available-times>)
     * [**Date Form and Booking Form**](<#date-form-and-booking-form>)
-* [**Testing**](<#testing>)
 * [**Deployment**](<#deployment>)
 * [**Credits**](<#credits>)
     * [**Content**](<#content>)
@@ -157,16 +163,6 @@ The gyms website is designed to be easy for users to navigate and simple for use
 
       ![Edit Booking Message image](readme-images/edit-pop-up.png)
 
-  * ### Responsiveness
-      * The website is responsive accross all screen sizes. On small screen sizes the images and content stack ontop each other. The website was tested on the following browsers with no visible issues for the user. Google Chrome, Microsoft Edge and Mozilla Firefox.
-
-      * The responsive design tests were carried out manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/).
-
-|        | Moto G4 | Galaxy S5 | iPhone 5 | iPad | Display <1200px | Display >1200px |
-|--------|---------|-----------|----------|------|-----------------|-----------------|
-| Render | pass    | pass      | pass     | pass | pass            | pass            |
-| Images | pass    | pass      | pass     | pass | pass            | pass            |
-| Links  | pass    | pass      | pass     | pass | pass            | pass            |
 
 # Models 
 * For this project, I only have one custom django model- The Booking model. This model has 3 fields- The slot field, the user field and the booking date field. The slot field is the time that the booking will take place. This comes from a tuple called Slots. The user field is whichever user is logged in when the booking is reserved. And finally the booking date field is a charachter field which stores the date of the booking. I originally had this as a datefield but changed it as I talk about [here](<#date-form-and-booking-form>).
@@ -199,39 +195,6 @@ The gyms website is designed to be easy for users to navigate and simple for use
 
 [Back to top](<#contents>)
 
-# Debugging
-
-## Available Times
-* While making this website I encountered many problems. The problem that I spent the most time figuring out was how to use only have the available times as options to book private sessions. I was able to display the available times in the dropdown menu, but whenever I would try to submit the form it would say that the form is invalid. 
-
-* I was using a model form connected to the bookings model. I tried to set the fields required to false but the form was still invalid.
-
-![Debug times image](readme-images/debug-times.png)
-
-* I managed to get the form to work by only having the 'slot' field in the model form. 
-
-![Times Fix image](readme-images/times-fix.png)
-
-## Date Form and Booking Form
-* My main intention with the functionality for this webiste is that the user would first choose the date they wanted to have a private session, and then they would be able to see what times were available based on their choice. I decided to carry this out by having the user complete two forms to book a session, the first would be where they choose a date and the second would be where the available times are displayed. Carrying the chosen date from one form to another proved to be more difficult than expected.
-
-* First I tried to store the first date chosen as a javascript variable which would then be called upon when the second form would load. This would not work however as I had the two forms on seperate templates so the javascript variable kept resetting when I would open the next page.
-
-![Javascript Variable image](readme-images/js-variable.png)
- 
-* I then changed my approach and changed how my booking form was set up. I initially had the Slot field as its own model, where I had all the slot times as model instances that the Booking model would point as a foreign key when making a booking. 
-
-![Old Model image](readme-images/old-model.png)
-
-* I changed this to a tuple of times that would be available everyday. I also changed the datefield to a charfield. 
-
-![New Model image](readme-images/new-model.png)
-
-* I then took the input of the date form using [Djangos Sessions](https://docs.djangoproject.com/en/4.1/topics/http/sessions/) and converted it into a string, which would I then call upon in the booking form and use as the booking_date input instance when making a booking.
-
-![Date String image](readme-images/date-string.png)
-![Booking String image](readme-images/booking-string.png)
-
 # Testing
 
 ## HTML testing
@@ -242,6 +205,35 @@ The gyms website is designed to be easy for users to navigate and simple for use
 
 ## Lighthouse testing
 ![Lighthouse image](readme-images/lighthouse.png)
+
+## PEP Validation
+At the time of this project the website [pep8online](http://pep8online.com/) is currently offline. To test my code I am using the [Code Institute Validator](https://pep8ci.herokuapp.com/) instead.
+
+### Booking app
+
+* forms.py - All clear, no errors found
+* models.py - 28: E501 line too long (83 > 79 characters)
+  * I have chosen to ignore this error as breaking this line up results in terminal errors in VsCode
+* urls.py - All clear, no errors found
+* views.py - All clear, no errors found
+
+### Members app
+
+* forms.py - All clear, no errors found
+* models.py - All clear, no errors found
+* urls.py - All clear, no errors found
+* views.py - All clear, no errors found
+
+  * ### Responsiveness
+      * The website is responsive accross all screen sizes. On small screen sizes the images and content stack ontop each other. The website was tested on the following browsers with no visible issues for the user. Google Chrome, Microsoft Edge and Mozilla Firefox.
+
+      * The responsive design tests were carried out manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/).
+
+|        | Moto G4 | Galaxy S5 | iPhone 5 | iPad | Display <1200px | Display >1200px |
+|--------|---------|-----------|----------|------|-----------------|-----------------|
+| Render | pass    | pass      | pass     | pass | pass            | pass            |
+| Images | pass    | pass      | pass     | pass | pass            | pass            |
+| Links  | pass    | pass      | pass     | pass | pass            | pass            |
 
 ## Django testing
 
@@ -254,7 +246,7 @@ The gyms website is designed to be easy for users to navigate and simple for use
 ### Views testing
 ![Views image](readme-images/views-testing.png)
 
-## Manual Testing
+## User Stories Testing
 Manual tests were performed on all the user stories
 
 ### Viewing And Navigation
@@ -311,6 +303,39 @@ Manual tests were performed on all the user stories
 * As a user I want to visual confirmation when adding or changing a booking.
 
   * Upon adding/editing a booking, the user receives a confirmation message to confirm their actions.
+
+# Debugging
+
+## Available Times
+* While making this website I encountered many problems. The problem that I spent the most time figuring out was how to use only have the available times as options to book private sessions. I was able to display the available times in the dropdown menu, but whenever I would try to submit the form it would say that the form is invalid. 
+
+* I was using a model form connected to the bookings model. I tried to set the fields required to false but the form was still invalid.
+
+![Debug times image](readme-images/debug-times.png)
+
+* I managed to get the form to work by only having the 'slot' field in the model form. 
+
+![Times Fix image](readme-images/times-fix.png)
+
+## Date Form and Booking Form
+* My main intention with the functionality for this webiste is that the user would first choose the date they wanted to have a private session, and then they would be able to see what times were available based on their choice. I decided to carry this out by having the user complete two forms to book a session, the first would be where they choose a date and the second would be where the available times are displayed. Carrying the chosen date from one form to another proved to be more difficult than expected.
+
+* First I tried to store the first date chosen as a javascript variable which would then be called upon when the second form would load. This would not work however as I had the two forms on seperate templates so the javascript variable kept resetting when I would open the next page.
+
+![Javascript Variable image](readme-images/js-variable.png)
+ 
+* I then changed my approach and changed how my booking form was set up. I initially had the Slot field as its own model, where I had all the slot times as model instances that the Booking model would point as a foreign key when making a booking. 
+
+![Old Model image](readme-images/old-model.png)
+
+* I changed this to a tuple of times that would be available everyday. I also changed the datefield to a charfield. 
+
+![New Model image](readme-images/new-model.png)
+
+* I then took the input of the date form using [Djangos Sessions](https://docs.djangoproject.com/en/4.1/topics/http/sessions/) and converted it into a string, which would I then call upon in the booking form and use as the booking_date input instance when making a booking.
+
+![Date String image](readme-images/date-string.png)
+![Booking String image](readme-images/booking-string.png)
 
 ### Deployment
 

@@ -1,6 +1,9 @@
 from django.urls import path
 from . import views
-from .views import home, DateView, BookingView, confirmed, edit_date, edit_booking, edit_confirmed, view_bookings, delete_bookings
+
+# Split into 2 lines to prevent pep validation error
+from .views import home, DateView, BookingView, confirmed, edit_date
+from .views import edit_booking, edit_confirmed, view_bookings, delete_bookings
 
 urlpatterns = [
     path('', home, name="home"),
