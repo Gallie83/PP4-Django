@@ -5,7 +5,8 @@ Shannon Muay Thai Academy is a muay thai kickboxing gym located in Shannon, Co. 
 Welcome to the <a href="https://pp4-django-bookings.herokuapp.com/" target="_blank" rel="noopener">Shannon Muay Thai Academy</a> Website.
 
 # Contents
-
+* [**Project Management**](<#project-management>)
+    *  [Trello](<#trello>)
 * [**User Experience UX**](<#user-experience-ux>)
     *  [User Stories](<#user-stories>)
     *  [Wireframes](<#wireframes>)
@@ -29,6 +30,13 @@ Welcome to the <a href="https://pp4-django-bookings.herokuapp.com/" target="_bla
     * [**Media**](<#media>)
 *  [**Acknowledgements**](<#acknowledgements>)
 
+# Project Management
+
+## Trello
+
+* For this project I have used Trello to manage my projects progress. I mapped out all the user stories for the website to trello and used it to ensure the progress on this website was moving efficiently. The major milestones I had when creating this project were the booking and user and login functionality as they were the very core of the website itself.
+
+![Trello image](readme-images/trello.png)
 
 # User Experience (UX)
 
@@ -66,6 +74,7 @@ Welcome to the <a href="https://pp4-django-bookings.herokuapp.com/" target="_bla
 ![Desktop wireframe image](readme-images/desktop-wireframe-5.png)
 
 * For smaller screens I condensed the website down and stacked content on top of each other. I also removed the gyms title logo from the navbar and replaced it with the gyms logo to keep the navbar from looking overcrowded. I also used a responsive navbar that included a dropdown menu on smaller screens from [boostrap](https://getbootstrap.com/docs/4.0/components/navbar/).
+
 
 
 [Back to top](<#contents>)
@@ -175,10 +184,14 @@ The gyms website is designed to be easy for users to navigate and simple for use
 * [CSS](https://www.w3.org/Style/CSS/Overview.en.html) - provides the styling.
 * [Javascript](https://www.javascript.com/) - used to change opacity of the navbar when scrolling.
 * [Heroku](https://dashboard.heroku.com/) - used to deploy the website.
+* [Git](https://git-scm.com/) - Used for version control
 * [Github](https://github.com/) - used to host and edit the website.
+* [VSCode](https://code.visualstudio.com/) - Used for writing all the websites code.
 * [Django](https://www.djangoproject.com/) - a python framework, used for linking logic and templates and forms. The backbone of the website.
 * [Boostrap](https://getbootstrap.com/) - used for quick and effective styling aswell as responsive navbar templates and responsiveness.
 * [Cloudinary](https://cloudinary.com/) - used for storing images.
+* [PostgreSQL](https://www.postgresql.org/) - Database used.
+* [ElephantSQL](https://www.elephantsql.com/) - A PostgreSQL database hosting service.
 
 [Back to top](<#contents>)
 
@@ -237,6 +250,63 @@ The gyms website is designed to be easy for users to navigate and simple for use
 ### Views testing
 ![Views image](readme-images/views-testing.png)
 
+## Manual Testing
+Manual tests were performed on all the user stories
+
+### Viewing And Navigation
+* As a user I want to clearly see information about class times.
+
+  * Class times are displayed at the top of the home page.
+
+* As a user I want to see information about the background of the club and sport.
+
+  * At the bottom of the home page, all information is available on the club and history of the sport.
+
+* As a site user I want to have access to the website through any device.
+
+  * Website is [responsive](<#responsiveness>) on all screen sizes and browsers.
+
+* As a site user I want to have access to all pages through the navbar.
+
+  * All pages of the site are accessible through the navigation bar which always appears at the top of the page.
+
+* As a site user I want to be able to view contact information for the business.
+
+  * Contact information and the gyms address is available in the website footer.
+
+### Registration And User Accounts
+* As a user I want to be able to register for an account.
+
+  * If not logged in, there is a 'Make an account' link to the registration page in the navbar.
+
+* As a user I want to be able to easily log in and log out.
+
+  * A user can login or logout through the navbar at any time.
+
+* As a user I want to visual confirmation when logging in and out.
+
+  * Upon logging in the user is taken to the home page with a message confirming they have logged in. When logging out, the user is brought to the login page with a message to confirm they have logged out.
+
+### Bookings
+* As a user I want to be able to see what time-slots are available on specific dates.
+
+  * If logged in, the user can choose a date they would like to book a session. They are then brought to a page where a dropdown menu displays any available sessions left on that day. If the day is fully booked, there is a message asking them to choose another day, with a link back to the previous page.
+
+* As a user I want to be able to book training sessions easily on the website.
+
+  * Once logged in, a user can book any available session at least a day in advance through the 'Book a session' link in the navbar.
+
+* As a user I want to have access to all my currently booked private sessions.
+
+  * A user can look through any of their booked sessions, both upcoming and previous, in the 'View my Bookings' link in the navbar.
+
+* As a user I want to be able to delete or edit any currently booked private session.
+
+  * On the 'View my Bookings' page, there are two buttons 'Edit' and 'Delete' where the user can make changes or completely delete their booking. If they try to delete their booking they are met with a pop up confirming their action, to prevent accidental deletions. 
+
+* As a user I want to visual confirmation when adding or changing a booking.
+
+  * Upon adding/editing a booking, the user receives a confirmation message to confirm their actions.
 
 ### Deployment
 
@@ -270,16 +340,11 @@ I have broken my deployment process up into several simple steps:
   * Password
   * Host
 * I then added in all of my Config Vars by going to `Settings` in the Heroku top navigation bar.
-  * SECRET_KEY - random Django secret key
   * DB_NAME - Provided by ClearDB MySQL
   * DB_USER - Provided by ClearDB MySQL
   * DB_PASSWORD - Provided by ClearDB MySQL
   * DB_HOST - Provided by ClearDB MySQL
   * DB_PORT - Usual 3306
-  * AWS_ACCESS_KEY_ID - Provided by AWS
-  * AWS_SECRET_ACCESS_KEY - Provided by AWS
-  * STRIPE_PUBLISHABLE - Provided by Stripe
-  * STRIPE_SECRET - Provided by Stripe
 * I also added `DISABLE_COLLECTSTATIC` with a value of `1` to my config vars as I collected my static files manually later.
 * I then moved on to the `Deploy` tab in the Heroku top navigation bar.
 * I opted to install the Heroku CLI as I'd need to run commands later such as migrate, collectstatic etc.
@@ -343,10 +408,6 @@ Please also note that these commands may differ from OS to OS.
     * DB_PASSWORD - Optional, as you can enter a local string after the os.environ.get if you prefer.
     * DB_HOST - Optional, as you can enter a local string after the os.environ.get if you prefer.
     * DB_PORT - Optional, as you can enter a local string after the os.environ.get if you prefer.
-    * AWS_ACCESS_KEY_ID - As long as you set `DEBUG = True` you should not need this.
-    * AWS_SECRET_ACCESS_KEY - As long as you set `DEBUG = True` you should not need this.
-    * STRIPE_PUBLISHABLE - Get it from your Stripe account.
-    * STRIPE_SECRET - Get it from  your Stripe account.
 * Now everything is set up, go back to the terminal window with the virtualenv running.
 * Then run the following:
   * `$ python manage.py makemigrations`
