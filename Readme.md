@@ -171,6 +171,8 @@ The gyms website is designed to be easy for users to navigate and simple for use
 
 ![New Model image](readme-images/new-model.png)
 
+![Database Schema image](readme-images/database.png)
+
 [Back to top](<#contents>)
 
 ## Future Features 
