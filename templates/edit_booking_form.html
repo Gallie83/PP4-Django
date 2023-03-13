@@ -24,7 +24,10 @@
                     <option value="{{ time }}">{{ time }}</option>
                     {% endfor %}
                 </select>
-                <input id="book" type="submit" value="Book this time" />
+                <!-- Confirm change message -->
+                <input
+                    onclick="return confirm('Are you sure you want to change booking to this time? This will remove previous booking.');"
+                    id="book" type="submit" value="Book this time" />
             </form>
         </div>
         {% else %}
@@ -33,7 +36,7 @@
         <hr>
         <p>We are fully booked on that day, please try a different date!</p>
         <!-- Link to Login page -->
-        <a class="btn btn-light btn-sm m-2" href="{% url 'date' %}">Choose another date</a>
+        <a class="btn btn-light btn-sm m-2" href="{% url 'edit_date' %}">Choose another date</a>
         {% endif %}
     </div>
 
@@ -51,7 +54,7 @@
             <p class="p-3">You must be logged in to book a private training session.</p>
 
             <!-- Login page link -->
-            <a class="btn btn-light btn-sm m-2" href="{% url 'login'%}">Login here!</a>
+            <a class="btn btn-light btn-sm m-2" href="{% url 'login' %}">Login here!</a>
         </div>
     </div>
 

@@ -57,9 +57,7 @@ def DateView(request):
     if form.is_valid():
         # Takes input and converts from str to date
         formDate = form.cleaned_data.get('booking_date')
-        print(formDate)
         newDate = datetime.datetime.strptime(formDate, '%Y-%m-%d').date()
-        print(newDate)
         # Checks if date is before current date and throws error message
         if newDate < date.today():
             messages.success(request, ("Invalid date selected!"))
@@ -114,6 +112,7 @@ def BookingView(request):
     return render(request, "booking_form.html", context)
 
 
+# User chooses new date for booking
 def edit_date(request, booking_id):
     old_booking = Booking.objects.get(pk=booking_id)
     old_booking_pk = booking_id
@@ -126,12 +125,12 @@ def edit_date(request, booking_id):
         # Checks if date is before current date and throws error message
         if newDate < date.today():
             messages.success(request, ("Invalid date selected!"))
-            return redirect('date')
+            return redirect('edit_date')
         # Stops user from making a booking on todays date
         elif newDate == date.today():
             messages.success(
                 request, ("Sessions must be booked at least a day in advance!"))
-            return redirect('date')
+            return redirect('edit_date')
         else:
             # Stores inputted date as string to be used in booking form
             request.session["dateSelected"] = str(
@@ -151,6 +150,7 @@ def edit_date(request, booking_id):
     return render(request, 'edit_date_form.html', context)
 
 
+# User chooses new time for booking
 def edit_booking(request):
     # Retrieves date used in previous form and sets it to booking_date
     instance = Booking(booking_date=request.session.get(
@@ -158,7 +158,6 @@ def edit_booking(request):
 
     # Gets previous booking data
     old_booking = request.session.get("oldBooking")
-    print(old_booking)
     old_booking_pk = request.session.get("oldBookingPk")
 
     form = BookingForm(request.POST or None, instance=instance)
@@ -189,9 +188,8 @@ def edit_booking(request):
     }
     return render(request, "edit_booking_form.html", context)
 
+
 # Renders page once user edits a session
-
-
 def edit_confirmed(request):
     return render(request, 'edit_confirmed.html', {})
 
