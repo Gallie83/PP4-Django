@@ -40,9 +40,11 @@ Welcome to the <a href="https://pp4-django-bookings.herokuapp.com/" target="_bla
 
 ## Trello
 
+![Trello image](readme-images/trello.png)
+
 * For this project I have used Trello to manage my projects progress. I mapped out all the user stories for the website to trello and used it to ensure the progress on this website was moving efficiently. The major milestones I had when creating this project were the booking and user and login functionality as they were the very core of the website itself.
 
-![Trello image](readme-images/trello.png)
+![Trello image](readme-images/trello-done.png)
 
 # User Experience (UX)
 

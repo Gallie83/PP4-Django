@@ -7,3 +7,6 @@ urlpatterns = [
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
 ]
+
+# 404 error page
+handler404 = "helpers.views.handle_not_found"

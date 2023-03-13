@@ -15,7 +15,7 @@
         {% if available_slots %}
         <h2>Choose a Time</h2>
         <hr>
-        <div class="md-form md-outline" inline="true">
+        <div class="md-form md-outline">
             <form method="POST" class="p-5">
                 {% csrf_token %}
                 <!-- Returns only available times on chosen day -->
