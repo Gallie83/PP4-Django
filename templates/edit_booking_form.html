@@ -36,7 +36,7 @@
         <hr>
         <p>We are fully booked on that day, please try a different date!</p>
         <!-- Link to Login page -->
-        <a class="btn btn-light btn-sm m-2" href="{% url 'edit_date' %}">Choose another date</a>
+        <a class="btn btn-light btn-sm m-2" href="{% url 'edit_date' old_booking_pk %}">Choose another date</a>
         {% endif %}
     </div>
 

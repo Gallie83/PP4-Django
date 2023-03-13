@@ -185,6 +185,7 @@ def edit_booking(request):
         'form': form,
         'available_slots': available_slots,
         'old_booking': old_booking,
+        'old_booking_pk': old_booking_pk,
     }
     return render(request, "edit_booking_form.html", context)
 
