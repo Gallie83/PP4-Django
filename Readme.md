@@ -2,7 +2,9 @@
 
 Shannon Muay Thai Academy is a muay thai kickboxing gym located in Shannon, Co. Clare. This website is designed to give users information about both the gym and the sport, and for users to be able to request private training sessions at times that suit them. 
 
-Welcome to the <a href="https://pp4-django-bookings.herokuapp.com/" target="_blank" rel="noopener">Shannon Muay Thai Academy</a> Website.
+Note: This website is currently not live due to changes in Heroku's free-tier policies. However, the full source code is available in this repository, and screenshots of the app are provided below.
+
+![Login Confirm image](readme-images/login-confirm.png)
 
 # Contents
 * [**Project Management**](<#project-management>)
